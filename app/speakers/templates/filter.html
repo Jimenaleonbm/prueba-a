@@ -1,0 +1,21 @@
+<section class="filter-agenda ff-cocogoose" style="min-height: 100vh;" ng-if="ctrl.filter.popup.value">
+
+	<ion-content>
+		<div class="button-bar padding">
+			<div class="button fz-2 active">Secciones</div>
+		</div>
+
+		<ion-list>
+			<ion-checkbox ng-repeat="(key, item) in ctrl.tracks" ng-model="ctrl.filter.data.track[key]" class="uppercase color-brand fz1">
+				{{item.name}}</ion-checkbox>
+		</ion-list><br>
+
+		<div class="text-center padding">
+			<button class="button button-calm button-block color-royal" ng-click="ctrl.init(ctrl.data, true)">
+        Filtrar
+      </button>
+		</div>
+    <br>
+	</ion-content>
+
+</section>

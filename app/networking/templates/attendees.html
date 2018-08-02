@@ -1,0 +1,39 @@
+<ion-view cache-view="false" view-title="Usuarios">
+
+
+    <div class="full-size bg-img" style="background-image: url({{ctrl.event.data.image}})"></div>
+
+    <!-- do you want padding? -->
+    <ion-content>
+
+        <form class="list no-m">
+            <div class="item item-input-inset">
+                <label class="item-input-wrapper">
+                    <input class="no-border" type="text" placeholder="Buscar usuarios" ng-model="search.info.name">
+                </label>
+            </div>
+
+        </form>
+
+        <ion-list class="list block-border color-white no-bg-color list-custom" can-swipe="false">
+
+            <ion-item class="item item-icon-right no-bg-color item-text-wrap"
+                      item-height="53"
+                      ng-repeat="item in ctrl.attendees.data | orderBy: 'info.name' | filter: search">
+                <div class="color-black fz-3">{{::item.info.name}}</div>
+
+                <div class="icon">
+                    <i class="ion-android-person-add"
+                       ng-class="{'icon-orange' : item.requests[ctrl.fbuserid].status === false}"
+                       ng-if="!item.requests[ctrl.fbuserid].status"
+                       ng-click="ctrl.request(item.id, item.requests[ctrl.fbuserid].status)"></i>
+
+                    <i class="ion-android-person icon-green" ng-if="item.requests[ctrl.fbuserid].status" ui-sref="main.networking.attendeeCardDetail({contactID: item.id})"></i>
+                </div>
+
+            </ion-item>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,5 @@
+<div class="tabs tabs-stable tabs-striped">
+  <div class="tab-item item-text-wrap assertive uppercase ff-lato" ng-repeat="item in tabs" ng-click="groupby.set(item.key)" ng-class="{'active': groupby.isSelected(item.key)}">
+    <span class="fz-4">ver por</span> <span class="fw-700 fz-2">{{::item.name}}</span>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<ion-view view-title="Wall" class="wall">
+  <!-- do you want padding? -->
+  <ion-content class="bg-gray">
+    <div class="list m-horizontal05">
+      <div class="item item-input-inset padding" ui-sref="main.post">
+        <img src="{{ (ctrl.user.image) ? ctrl.user.image : 'main/assets/images/avatar.png';}}" style="max-width: 35px; height: auto; position: absolute">
+        <div class="pl3r fz-2">
+          <div class="item-input-wrapper color-gray bg-white" style="height: 2em;">
+            Escribe algo aquí...
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content goes here -->
+    <div class="padding mb1 bg-white" ng-repeat="item in ctrl.list">
+      <img class="gravatar" ng-src="{{(item.user.image) ? item.user.image : 'main/assets/images/avatar.png' ;}}">
+      <div class="cont pl3r">
+        <header class="space-between">
+          <h2 class="color-brand fz-3">{{item.user.name}}</h2>
+          <time class="fz-3">{{ctrl.getDateFormat(item.date)}}</time>
+        </header>
+        <section>
+          <p class="fz-3 color-gray">
+            {{item.comment}}
+          </p>
+          <div class="post-image mb05" ng-if="item.image">
+            <img id="imagePost" ng-src="{{item.image}}">
+            <!--<img style="display: none;" id="imageid" ng-if="event.image" ng-src="{{event.image.fullsize}}">-->
+          </div>
+          <p class="fz-3">
+            <span class="subdued">{{(item.likes) ? item.likes : 0}} {{(item.likes === 1) ? 'Like' : 'Likes' }}</span>
+            <span class="subdued" ui-sref="main.post_comments({focus: false, post_id: item.$key})">
+              {{(item.comments) ? item.comments : 0}} {{(item.comments === 1) ? 'Comentario' : 'Comentarios' }}
+            </span>
+          </p>
+        </section>
+        <footer class="footer-wall button-bar">
+          <span class="button button-clear fz-2" ng-class="(ctrl.checkUserPostLike(item.$key)) ? 'button-positive' : 'button-dark'" ng-click="ctrl.like(item.$key)">
+            <i class="icon small ion-thumbsup"></i> Like
+          </span>
+          <!--<span ng-if="ctrl.flag_like" class="button button-clear fz-2 button-positive" ng-click="ctrl.dislike(item.$key)">
+            <i class="icon small ion-thumbsup"></i> Like
+          </span>-->
+          <a class="button button-clear button-dark fz-2" ui-sref="main.post_comments({focus: true, post_id: item.$key})">
+            <i class="icon small ion-chatbubble"></i> Commentar
+          </a>
+          <a class="button button-clear button-dark fz-2" ui-sref="main.edit_comments({focus: true, post_id: item.$key})" ng-if="ctrl.user.uid==item.user.id">
+            <i class="icon small ion-edit"></i> Editar
+          </a>
+          <span class="button button-clear fz-2 button-dark" ng-if="item.image" ng-click="ctrl.share(item.image)">
+            <i class="icon small ion-android-share-alt"></i>Compartir
+          </span>
+        </footer>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

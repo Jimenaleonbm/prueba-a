@@ -1,0 +1,56 @@
+<ion-view class="registro auth" hide-nav-bar="true" >
+  <ion-content>
+
+    <header class="text-center">
+      <div class="header-img">
+        <img ng-src="main/assets/images/header-img.png">
+      </div>
+      <div class="logo">
+        <img ng-src="main/assets/images/logo.png">
+      </div>
+    </header>
+
+    <div class="list list-inset input item-no-bgc">
+      <div class="action-buttons" ng-if>
+        <button class="button button-block button-calm color-royal fw-700 ff-lato fz-1 no-mb" ng-click="loginWithFacebook()">
+          Ingresar con facebook
+        </button>
+      </div>
+
+      <h2 class="text-center ff-lato fw-500 color-black fz0 no-m">regístrate:</h2>
+
+      <label class="item item-input item-floating-label color-black">
+        <span class="input-label color-black fz-2">Nombre Completo</span>
+        <input type="text" placeholder="Nombre Completo" class="fz0 color-black" ng-model="name">
+      </label>
+
+      <label class="item item-input item-floating-label color-black">
+        <span class="input-label color-black fz-2">Email</span>
+        <input type="email" placeholder="Email" class="fz0 color-black" ng-model="email">
+      </label> 
+
+      <label class="item item-input item-floating-label color-black">
+        <span class="input-label color-black fz-2">Contraseña</span>
+        <input type="password" class="fz0 color-black" placeholder="Contraseña" ng-model="password">
+      </label>
+
+      <div class="terminos text-center">
+        <p class="fz-2 color-black">
+          Al registrarse acepta la <a ui-sref="terms" class="color-black fw-900">politica de privacidad y uso de datos</a>.
+        </p>
+      </div>
+
+      <div class="action-buttons">
+        <button class="button button-block button-calm color-white fw-700 ff-lato fz-1 no-mb" ng-click="registrar(name, email, password)">Registrarme</button>
+      </div>
+
+      <div class="auth-options fz-2 text-center color-black">
+        <div class="back-to-login">
+          Ya tengo una cuenta. <a class="pd td-underline color-black" ui-sref="login">Iniciar sesión</a>
+        </div>
+      </div>
+    </div>
+
+
+  </ion-content>
+</ion-view>

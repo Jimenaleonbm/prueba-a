@@ -1,0 +1,137 @@
+.f-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.f-medium {
+    font-size: 13px !important;
+    line-height: 14px;
+}
+
+.f-xs {
+    font-size: 10px !important;
+    line-height: 14px;
+}
+
+.no-border {
+    border: none !important;
+}
+
+/**
+* Notificacion
+*/
+.badge.notificacion {
+    position: absolute;
+    right: -4px;
+    top: 0;
+}
+
+.badge.notificacion.request {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+}
+
+/**
+* TITULOS DE LOS TABS
+*/
+.event-networking .tab-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // TEXT
+    text-overflow: inherit;
+    white-space: normal;
+    line-height: 1em;
+    font-size: 12px;
+}
+
+.tabs-striped.tabs-royal .tabs {
+    background-color: #27183c;
+}
+
+/**
+* ICONS
+*/
+.icon-red {
+    color: #FF2C5E;
+}
+
+.icon-green {
+    color: #01A49A;
+}
+
+.icon-orange {
+    color: rgb(240, 184, 64);
+}
+
+/**
+* Centrar contenedor
+*/
+.container-center {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+/**
+* List
+*/
+.item.item-divider-custom {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.list-cards {
+    .item.item-divider-custom {
+        padding-top: 25px;
+    }
+}
+
+/**
+* Contacts
+*/
+.list-custom .description-contact {
+    position: relative;
+    padding-left: 16px;
+
+    i {
+        position: absolute;
+        top: -2px;
+        left: 0;
+        // text
+        font-size: 16px;
+        color: white;
+    }
+}
+
+/**
+* User info list
+*/
+.list.transparent {
+    background: transparent !important;
+    .item {
+        background: transparent !important;
+    }
+}
+
+.list.user-info-list {
+    background: transparent !important;
+
+    .item {
+        margin: 5px auto;
+        padding: 10px 15px;
+        background: rgba(255, 255, 255, 0.2) !important;
+        border-radius: 6px;
+        border: none;
+
+        span {
+            margin-right: 15px;
+            color: #D4D1D8;
+        }
+    }
+}
+
+

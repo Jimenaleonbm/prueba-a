@@ -1,0 +1,31 @@
+<ion-view view-title="noticia" class="noticia">
+
+  <ion-content>
+
+    <ion-list>
+      <ion-item class="no-padding no-border">
+        <div ng-if="notice.image.fullsize" class="cover text-center">
+          <img ng-src="{{notice.image.fullsize}}">
+        </div>
+        <div class="info padding item-text-wrap">
+          <div class="date fz-3 fw-900">
+            <span ng-if="notice.lugar" class="lugar">{{notice.lugar}},</span> <time>{{notice.fecha | date: 'dd MMM, yyyy' }}</time>
+          </div>
+          <div class="title uppercase fz0 ff-cocogoose color-calm">{{notice.titulo}}</div>
+
+          <div class="fz-1 fw-500 color-black trustAsHTML" style="padding-top: 1rem;" ng-bind-html="notice.contenido | trustAsHTML"></div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <h2 class="ff-lato fw-400 fz0 color-black no-mb">Compartir en:</h2>
+    <img style="display: none;" id="imageid" ng-if="event.share" ng-src="{{event.share.fullsize}}">
+    <section class="social-networks">
+        <a class="button button-icon ion-social-facebook"
+               href="#" ng-click="shareFaceBook()"></a>
+        <a class="button button-icon ion-social-instagram"
+               href="#" ng-click="shareInstagram()"></a>
+    </section>
+
+  </ion-content>
+</ion-view>

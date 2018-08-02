@@ -1,0 +1,56 @@
+$base: 1; //font base
+$base-rem: $base * 1rem; // font base en em's
+
+//ms -> modular scale
+$ms-base: $base;
+$ms-ratio: 1.08;
+
+$ms0: $ms-base;
+$ms1: $ms-ratio;
+$ms2: $ms-ratio * $ms1;
+$ms3: $ms-ratio * $ms2;
+$ms4: $ms-ratio * $ms3;
+$ms5: $ms-ratio * $ms4;
+$ms6: $ms-ratio * $ms5;
+$ms7: $ms-ratio * $ms6;
+$ms8: $ms-ratio * $ms7;
+$ms9: $ms-ratio * $ms8;
+
+
+//fonts sizes
+.fz-4 {
+  font-size: $base-rem / $ms4 !important;
+}
+.fz-3 {
+  font-size: $base-rem / $ms3 !important;
+}
+.fz-2 {
+  font-size: $base-rem / $ms2 !important;
+}
+.fz-1 {
+  font-size: $base-rem / $ms1 !important;
+}
+.fz0 {
+  font-size: $base-rem !important;
+}
+.fz1 {
+  font-size: $base-rem * $ms1 !important;
+}
+.fz2 {
+  font-size: $base-rem * $ms2 !important;
+}
+.fz3 {
+  font-size: $base-rem * $ms3 !important;
+}
+.fz4 {
+  font-size: $base-rem * $ms4 !important;
+}
+.fz5 {
+  font-size: $base-rem * $ms5 !important;
+}
+.fz6 {
+  font-size: $base-rem * $ms6 !important;
+}
+.fz7 {
+  font-size: $base-rem * $ms7 !important;
+}

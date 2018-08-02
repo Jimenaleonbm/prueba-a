@@ -1,0 +1,41 @@
+@import '../../main/styles/variables';
+
+.noticias {
+  .list {
+    padding-bottom: 1rem;
+    .item-content {
+      padding: 0;
+    }
+    .info {
+      padding: 16px 10px !important;
+      .title {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+}
+
+.noticias, .noticia {
+  .cover {
+    position: relative;
+    padding: 25% 0;
+    overflow: hidden;
+    img {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.trustAsHTML {
+  color: rgb(0,0,0) !important;
+  background: transparent !important;
+  font-size: 0.88889rem !important;
+  p,a,span,b, {
+    color: rgb(0,0,0) !important;
+    background: transparent !important;
+    font-size: 0.88889rem !important;
+  }
+}

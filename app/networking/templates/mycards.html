@@ -1,0 +1,75 @@
+<ion-view cache-view="false" view-title="Mis Contactos">
+
+  <!-- do you want padding? -->
+  <ion-content>
+
+    <ion-list class="list swiss list-cards">
+
+      <div class="item item-divider-custom fz-1 ff-cocogoose color-black fw-500">SOLICITUDES ENVIADAS</div>
+
+      <div class="icon" ng-if="!ctrl.sentRequests">
+        <ion-spinner icon="dots"></ion-spinner>
+      </div>
+
+      <div class="item fz-2  " ng-if="ctrl.sentRequests.length === 0">No has enviado solicitudes</div>
+
+      <div class="item item-icon-right item-text-wrap   fz-2" ng-repeat="item in ctrl.sentRequests | orderBy: 'info.name'">{{item.info.name}}</div>
+
+    </ion-list>
+
+    <ion-list class="list swiss list-cards">
+
+      <div class="item item-divider-custom fz-1 ff-cocogoose color-black  fw-500">SOLICITUDES PENDIENTES</div>
+
+      <div class="item fz-2  " ng-if="ctrl.requests.length === 0">Actualmente no tienes solicitudes pendientes</div>
+
+      <div class="item item-icon-right item-text-wrap" ng-repeat="item in ctrl.requests | orderBy: 'name'">
+        <h2 class="fz-2">{{item.name}}</h2>
+
+        <div class="icon" ng-if="ctrl.inprogress(item.id)">
+          <ion-spinner icon="dots"></ion-spinner>
+        </div>
+
+        <div class="icon" ng-if="!ctrl.inprogress(item.id)">
+          <span class="ion-ios-close-outline icon-red" ng-click="ctrl.ignore(item.id, $index)"></span>
+          &nbsp; &nbsp;
+          <span class="ion-ios-checkmark-outline icon-green" ng-click="ctrl.accept(item.id, $index)"></span>
+        </div>
+
+      </div>
+
+    </ion-list>
+
+    <ion-list class="list swiss list-cards" can-swipe="false">
+
+      <!-- content my business cards-->
+      <div class="item item-divider-custom fz-1 ff-cocogoose color-black  fw-500">
+        CONTACTOS
+      </div>
+
+      <div class="item fz-2" ng-if="ctrl.cards.length === 0">
+        Actualmente no tienes contactos
+        <span class="item-note font-small fw-400" ui-sref="main.networking.attendees">
+          <i class="icon ion-android-search"></i> Buscar
+        </span>
+      </div>
+
+      <ion-item class="item item-text-wrap item-icon-right" ng-repeat="item in ctrl.cards | orderBy: 'name'" ng-class="{'item-avatar': item.image}">
+        <img ng-show="item.image" ng-src="{{item.image}}">
+        <h2 class="fzo ff-lato" style="width: 100%;" ui-sref="main.networking.mycardsDetail({contactID: item.id})">{{item.name}}</h2>
+        <p class="font-2">{{item.company}}</p>
+
+        <div class="icon">
+          <span class="ion-android-person fz0" ui-sref="main.networking.mycardsDetail({contactID: item.id})"></span>
+          &nbsp; &nbsp;
+          <span class="ion-android-chat fz0" ui-sref="main.networking.chatDetail({chatID: item.id})"></span>
+        </div>
+
+        <ion-delete-button class="ion-minus-circled"></ion-delete-button>
+
+      </ion-item>
+
+    </ion-list>
+
+  </ion-content>
+</ion-view>

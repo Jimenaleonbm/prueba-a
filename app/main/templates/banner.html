@@ -1,0 +1,10 @@
+<div class="adverts">
+    <ion-slides options="sliderOptions" slider="slider" class="slider-outstanding" autoplay="true">
+        <ion-slide-page  ng-repeat="item in adverts">
+            <div class="img-cont" ng-click="link(item.links.url)">
+                <img ng-src="{{item.image.fullsize}}">
+            </div>
+         
+        </ion-slide-page>
+    </ion-slides>
+</div>

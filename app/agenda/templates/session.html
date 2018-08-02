@@ -1,0 +1,80 @@
+<ion-view cache-view="false" title="" class="sesion bg-white">
+
+  <ion-nav-title>{{ctrl.cache.data.session.info.name}}</ion-nav-title>
+
+  <!-- do you want padding? -->
+  <ion-content>
+    <div class="slider" ng-if="ctrl.cache.data.session.info.image.fullsize">
+      <ion-slide-box on-slide-changed="slideHasChanged($index)">
+
+        <ion-slide class="text-center">
+          <img style="max-width:100%;height:auto;" ng-src="{{ctrl.cache.data.session.info.image.fullsize}}">
+        </ion-slide>
+
+      </ion-slide-box>
+    </div>
+
+    <article class="padding">
+
+      <div class="conference">
+        <h3 class="fz-3 uppercase color-assertive">
+          {{ctrl.cache.data.type}}
+        </h3>
+        <h2 class="like-icon item-icon-right uppercase fz1 fw-900 ff-cocogoose color-black">
+          {{ctrl.cache.data.session.info.name}}
+          <div class="heart" ng-if="!ctrl.user.isAnonymous">
+            <i class="ico  ion-ios-heart-outline ico-heart color-black" style="right: 5px;" ng-if="!ctrl.fav" ng-click="ctrl.favorito(true)"></i>
+            <i class="ico  ion-ios-heart ico-heart color-calm fav" style="right: 5px;" ng-if="ctrl.fav" ng-click="ctrl.favorito(false)"></i>
+          </div>
+        </h2>
+
+        <h4 class="scenario no-m fz-2" ng-if="ctrl.cache.data.scenario">{{ctrl.cache.data.scenario | uppercase}}</h4>
+
+        <h4 class="scenario no-m fz-2" ng-if="ctrl.cache.data.session.info.lugar || ctrl.cache.data.session.info.salon">
+          <span ng-if="ctrl.cache.data.session.info.lugar">{{ctrl.cache.data.session.info.lugar | uppercase}}</span>
+          <span ng-if="ctrl.cache.data.session.info.lugar && ctrl.cache.data.session.info.salon"> - </span>
+          <span ng-if="ctrl.cache.data.session.info.salon">{{ctrl.cache.data.session.info.salon | uppercase}}</span>
+        </h4>
+
+        <time class="date fw-500 fz-2 color-black">
+          <span class="day">{{ctrl.cache.data.session.info.date}} | </span>
+          <span class="hour">{{ctrl.cache.data.session.info.hourFrom.hour}}:{{ctrl.cache.data.session.info.hourFrom.minutes}}</span>
+          <span ng-if="ctrl.cache.data.session.info.hourFrom && ctrl.cache.data.session.info.hourTo"> - </span>
+          <span class="hour" ng-if="ctrl.cache.data.session.info.hourTo">{{ctrl.cache.data.session.info.hourTo.hour}}:{{ctrl.cache.data.session.info.hourTo.minutes}}</span>
+        </time>
+        <br><br>
+
+        <!-- company -->
+        <h4 class="scenario no-m fw-800" ng-if="ctrl.cache.data.session.info.company">
+          <icon class="icon ion-flash"></icon>
+          {{ctrl.cache.data.session.info.company | uppercase}}
+        </h4>
+        
+        <section class="description fw-400 color-black fz-1">
+          <p>{{ctrl.cache.data.session.info.description}}</p>
+        </section>
+
+      </div>
+
+      <div class="speakers" ng-if="ctrl.speakers">
+        <ion-spinner ng-show="ctrl.loading.inprogress"></ion-spinner>
+
+        <div class="list">
+
+          <a class="item item-avatar centerY no-border no-m bg-white item-text-wrap"
+            ng-class=""
+            ng-repeat="item in ctrl.speakers" 
+            ui-sref="main.speaker({idSpeaker: item.$id})">
+            <img ng-show="item.info.image.fullsize" ng-src="{{item.info.image.fullsize}}">
+            <h2 class="name color-black uppercase fz-2 fw-900">{{item.info.name}}</h2>
+            <p class="color-black">{{item.info.title}}</p>
+          </a>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </ion-content>
+</ion-view>

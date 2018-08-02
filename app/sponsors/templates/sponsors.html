@@ -1,0 +1,18 @@
+<ion-view cache-view="true" class="sponsors" title="Aliados">
+
+	<ion-content scroll="true" overflow-scroll="true">
+
+		<div ng-repeat="(key, group) in ctrl.sponsors | toArray:true | orderBy:'type' | groupBy: 'type'">
+			<div class="sponsor type padding">
+				<h2 class="fz-1 uppercase lh-1 fw-800 ff-cocogoose color-black">{{ctrl.types[key].name}}</h2>
+			</div>
+
+			<ion-list class="cols two-cols">
+				<div class="item sponsor-desc item-no-bgc" ng-repeat="item in group">
+					<a ng-href="{{item.links.url}}"><img ng-src="{{item.logo}}"></a>
+				</div>
+			</ion-list>
+		</div>
+
+	</ion-content>
+</ion-view>

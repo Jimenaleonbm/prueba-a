@@ -1,0 +1,73 @@
+<ion-side-menus enable-menu-with-back-views="false">
+
+    <!-- CONTENT -->
+    <ion-side-menu-content drag-content="true" edge-drag-threshold="false">
+
+        <!-- header bar -->
+        <!-- the nav bar will be updated as we navigate between views -->
+        <ion-nav-bar class="bar-light" delegate-handle="myNav">
+            <!-- back button, shown if applicable -->
+            <ion-nav-back-button side="left">
+            </ion-nav-back-button>
+            <!-- nav button, shown if applicable -->
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+
+        <!-- ROUTING INJECTED HERE: pageContent -->
+        <ion-nav-view name="globalView">
+        </ion-nav-view>
+
+    </ion-side-menu-content>
+
+    <!-- SIDEMENU -->
+    <ion-side-menu side="left">
+
+        <!-- menu content -->
+        <ion-content style="top:0;">
+
+            <ion-list>
+                <ion-item class="item item-avatar" ng-if="ctrl.user.isAnonymous" nav-clear>
+                    <img ng-src="main/assets/images/avatar.png">
+                    <div class="info">
+                        <h2 class="ff-lato fz-3 uppercase color-black">Hola,</h2>
+                        <div class="uppercase fz-3 fw-700 color-black">Invitado</b></div>
+                        <a nav-clear class="td-underline fz-3 fw-300 color-black"
+                           href="#" ng-click="ctrl.go('register')">Registrarse</a>
+                    </div>
+                </ion-item>
+                <ion-item class="item item-avatar" ng-if="!ctrl.user.isAnonymous" nav-clear
+                          ng-click="ctrl.go('global.profile', {hide: true})"
+                          menu-toggle="left">
+                    <img ng-if="!ctrl.user.image" ng-src="main/assets/images/avatar.png">
+                    <img ng-if="ctrl.user.image" ng-src="{{ctrl.user.image}}" menu-toggle="left">
+
+                    <div class="info">
+                        <h2 class="ff-lato fz-3 uppercase color-black">Hola,</h2>
+                        <div class="uppercase fz-3 fw-700 color-black">{{ ctrl.user.name }}</b></div>
+                        <div nav-clear class="td-underline fz-3 fw-300 color-black">Editar perfil</div>
+                    </div>
+                </ion-item>
+
+                <ion-item menu-close
+                          class="item-icon-left color-black fw-700 uppercase ff-cocogoose fz-2"
+                          ng-repeat="item in ctrl.menu"
+                          ng-click="ctrl.go(item.state)">
+                    {{item.name}} <i class="icon {{item.icon}}"></i>
+                </ion-item>
+                <!-- <ion-item class="item-icon-left color-black fw-700 uppercase ff-cocogoose fz-2"
+                          ng-click="footerGo('chats')">
+                    Chat <i class="icon ion-chatbubbles"></i>
+                </ion-item> -->
+                <ion-item class="item-icon-left color-black fw-700 uppercase ff-cocogoose fz-2"
+                          ng-click="ctrl.logout()">
+                    Cerrar Sesion <i class="icon ion-log-out"></i>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+
+    </ion-side-menu>
+
+</ion-side-menus>

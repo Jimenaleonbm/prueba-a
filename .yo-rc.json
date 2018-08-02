@@ -1,0 +1,25 @@
+{
+  "generator-m-ionic": {
+    "answers": {
+      "appName": "movep",
+      "appId": "com.mocionsoft.move",
+      "ionicCss": false,
+      "bowerPackages": [
+        "angular-dynamic-locale#~0.1.32",
+        "angular-translate#~2.13.0",
+        "angular-translate-loader-static-files#~2.13.0",
+        "localforage#~1.4.0"
+      ],
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "plugins": [
+        "cordova-plugin-device"
+      ],
+      "appModule": "movep",
+      "ecosystems": [],
+      "install": "yarn"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="control" ng-class="{'active': ctrl.sessionActive(conference)}">
+  <h2 class="time color-black uppercase fz-3 fw-800" ng-if="!conference.info.allDay.value">
+    <span class="start">{{conference.info.hourFrom.hour}}:{{conference.info.hourFrom.minutes}}</span>
+    <span class="end" ng-show="conference.info.hourTo"> - {{conference.info.hourTo.hour}}:{{conference.info.hourTo.minutes}}</span>
+  </h2>
+
+  <h2 class="time color-black uppercase fz-3 fw-800" ng-if="conference.info.allDay.value">
+    <span>{{(conference.info.allDay.name) ? conference.info.allDay.name : 'Todo el día'}}</span>
+  </h2>
+
+  <h3 class="color-black uppercase fz1 fw-900 name">
+    {{conference.info.name}}
+  </h3>
+
+  <div ng-show="conference.info.description" class="color-black fz-3 fw-300 ff-lato uppercase">
+    {{conference.info.description | limitTo:60}}{{(conference.info.description.length > 60)?'...':''}}
+  </div>
+  <div class="info color-black  fz-3 fw-300 ff-lato">
+    <span ng-show="conference.info.place">{{ctrl.scenarios[conference.info.place].name}}</span>
+    <span class="divider line" ng-show="conference.info.lugar && conference.info.salon"> - </span>
+    <span ng-show="conference.info.salon">{{conference.info.salon}}</span>
+  </div>
+
+  <div class="tags fw-300 color-black fz-2">
+    <div class="tag" ng-show="conference.info.track && !ctrl.groupby.isSelected('track')">{{(ctrl.tracks[conference.info.track].singularname) ? ctrl.tracks[conference.info.track].singularname : ctrl.tracks[conference.info.track].name}}</div>
+    <div class="tag" ng-show="conference.info.type && !ctrl.groupby.isSelected('category')">{{(ctrl.sessiontypes[conference.info.type].singularname) ? ctrl.sessiontypes[conference.info.type].singularname : ctrl.sessiontypes[conference.info.type].name}}</div>
+  </div>
+</div>

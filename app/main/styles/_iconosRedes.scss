@@ -1,0 +1,34 @@
+@import 'variables';
+
+.social-networks {
+  a.icon {
+    color: #fff;
+    display: inline-block;
+    line-height: initial;
+    min-height: initial;
+    text-align: center;
+    font-size: 1rem;
+    padding: .25em 0;
+    width: 2.072em;
+    &:before {
+      font-size: 1.25em;
+      line-height: initial;
+    }
+  }
+}
+.social-networksblack{
+    a.icon {
+    color: #000;
+    display: inline-block;
+    line-height: initial;
+    min-height: initial;
+    text-align: center;
+    font-size: 1rem;
+    padding: .25em 0;
+    width: 2.072em;
+    &:before {
+      font-size: 1.25em;
+      line-height: initial;
+    }
+  }
+}

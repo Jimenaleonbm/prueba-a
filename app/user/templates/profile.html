@@ -1,0 +1,20 @@
+<ion-view view-title="Perfil" class="profile bg-white">
+
+  <ion-content class="has-tabs">
+
+    <div ng-include="tpl.form"></div>
+
+  </ion-content>
+
+  <div class="tabs tabs-calm action-buttons">
+
+    <div class="tab-item item-text-wrap color-royal fw-700 ff-lato fz-1 no-mb" ng-click="save(form)">
+      Guardar
+    </div>
+    <div class="tab-item item-text-wrap color-royal fw-700 ff-lato fz-1 no-mb" ng-click="later()" ng-if="!hideButton.val">
+      Omitir
+    </div>
+
+  </div>
+
+</ion-view>

@@ -1,0 +1,31 @@
+@import "../../main/styles/variables";
+
+//sponsors
+.sponsors {
+	.list {
+		align-items: center;
+		.item {
+			padding: 20px;
+			img{
+				max-height: 100%;
+				max-width: 100% ;
+				width: auto;
+				height: auto;
+				display: block;
+				margin: auto;
+			}
+		}
+	}
+	.sponsor-desc {
+		position: relative;
+		h3 {
+			position: absolute;
+			width: 100%; 
+			bottom: 3px;
+		}
+		.item-content {
+			margin: 0;
+			padding: 0; 
+		}
+	}
+}

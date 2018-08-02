@@ -1,0 +1,52 @@
+.auth {
+  background: transparent no-repeat 50% 100%/cover;
+  background-image: url(../../main/assets/images/fondoRegistro.png);
+  header {
+    .logo {
+      max-width: 180px;
+      margin: 0 auto;
+      padding: 2em 0;
+      width: 100%;
+    }
+  }
+  .list-inset {
+    margin: 0 1.5em;
+  }
+
+
+  .terminos {
+    margin: .5em 0 0;
+    padding: 0 1.5em;
+  }
+  .action-buttons {
+    margin: 2em 0 1em;
+  }
+  .auth-options {
+    margin: .5em 0 0em;
+    a {
+      &.pd {
+        position: relative;
+        margin-bottom: .5em;
+        display: inline-block;
+        &:after {
+          content: '';
+          position: absolute;
+          top: -4px;
+          left: 0;
+          bottom: -4px;
+          right: 0;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.profile {
+  .user-avatar {
+    img {
+      max-width: 200px;
+      border-radius: 50%;
+    }
+  }
+}

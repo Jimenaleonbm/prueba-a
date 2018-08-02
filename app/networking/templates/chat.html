@@ -1,0 +1,41 @@
+<ion-view class="evento detalle-chat" id="userMessagesView">
+
+  <ion-nav-title>
+    {{ctrl.receiver.name}}
+  </ion-nav-title>
+
+  <ion-content class="has-footer" delegate-handle="userMessageScroll">
+
+    <div class="user-optout" ng-if="ctrl.receiverRef.optout">
+      <span class="f-xs"><i class="icon ion-alert-circled"></i> invisible - {{ctrl.receiver.name}} no disponible</span>
+    </div>
+
+    <!--<ion-scroll class="list-wrap no-header has-footer" direction="y">-->
+    <div ng-cloak ng-repeat="mensaje in ctrl.messages">
+      <div class="mensaje-wrap fw-400"
+           ng-class="{'actual' : mensaje.uid == ctrl.user, 'invitado' : mensaje.uid != ctrl.user, }">
+
+        <div class="mensaje-contenido">
+          {{mensaje.content}}
+          <div class="f-xs"><b>{{mensaje.from}},</b> {{mensaje.date | date}}</div>
+        </div>
+
+      </div>
+    </div>
+    <!--</ion-scroll>-->
+  </ion-content>
+
+  <form name="sendMessageForm" ng-submit="ctrl.sendMessage(sendMessageForm)" novalidate ng-if="!ctrl.receiverRef.optout">
+    <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+      <label class="item-input-wrapper">
+        <textarea ng-model="ctrl.formData.message" value="" placeholder="Enviar mensaje" required minlength="1" maxlength="1500" msd-elastic ng-disabled="ctrl.receiverRef.optout"></textarea>
+      </label>
+      <div class="footer-btn-wrap">
+        <button class="button button-icon icon ion-android-send footer-btn" type="submit"
+                ng-disabled="!ctrl.formData.message || ctrl.formData.message === '' || ctrl.receiverRef.optout">
+        </button>
+      </div>
+    </ion-footer-bar>
+  </form>
+
+</ion-view>

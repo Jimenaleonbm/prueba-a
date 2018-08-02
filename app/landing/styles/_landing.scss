@@ -1,0 +1,50 @@
+/**
+ * Estilos multi evento
+ */
+.proximos-eventos {
+
+  .columns {
+    display: flex;
+  }
+
+  .prox-item {
+    padding: 0 0 0.7rem;
+  }
+
+  .grupo-left {
+    width: 40%;
+    background-color: gray;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .grupo-right {
+    width: 60%;
+  }
+
+  .grupo-right {
+    padding: 15px;
+    background: rgb(0, 0, 0);
+    color: rgb(220, 220, 220);
+  }
+
+  .event-img {
+    &:before {
+      content: '';
+      display: block;
+      padding-top: 100%;
+    }
+  }
+
+  .tickets {
+    padding-top: 10px;
+
+    .button {
+      margin: 0 !important;
+    }
+  }
+
+  .titulo-evento {
+    padding-bottom: 10px;
+  }
+}

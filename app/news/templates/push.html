@@ -1,0 +1,14 @@
+<ion-view view-title="notificaciones" class="bg-white">
+  <ion-content class="has-tabs has-tabs-top notificaciones">
+    <ion-list>
+      <ion-item class="bg-white bullet green2 border-dashed color-black item-text-wrap" ng-repeat="item in notifications">
+        <div class="title fw-900 dot font-small">
+          {{item.title}}
+        </div>
+        <div class="info font-mini fw-300">
+          {{item.message}}
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

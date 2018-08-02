@@ -1,0 +1,52 @@
+<ion-view view-title="" class="bg-white">
+
+  <ion-nav-title>
+    {{ctrl.contact.data.name}}
+  </ion-nav-title>
+
+  <!-- do you want padding? -->
+  <ion-content>
+
+    <div class="container-center padding">
+
+      <div class="image" ng-if="ctrl.contact.data.image">
+        <img ng-src="{{ctrl.contact.data.image}}">
+      </div>
+
+      <ul class="list user-info-list fw-400">
+        <li class="item color-black" ng-if="ctrl.contact.data.name">
+          <span>Nombre:</span> {{ctrl.contact.data.name}}
+        </li>
+        <li class="item color-black" ng-if="ctrl.contact.data.company">
+          <span>Empresa:</span> {{ctrl.contact.data.company}}
+        </li>
+        <li class="item color-black" ng-if="ctrl.contact.data.title">
+          <span>Cargo:</span> {{ctrl.contact.data.title}}
+        </li>
+        <li class="item color-black" ng-if="ctrl.contact.data.mobilePhone">
+          <span>Movil:</span> {{ctrl.contact.data.mobilePhone}}
+        </li>
+        <li class="item color-black" ng-if="ctrl.contact.data.email">
+          <span>Email:</span> {{ctrl.contact.data.email}}
+        </li>
+      </ul>
+
+      <a class="button button-block button-dark"
+              ui-sref="main.networking.chatDetail({chatID: ctrl.contact.id})">
+        Enviar mensaje de chat
+      </a>
+
+      <button class="button button-block button-dark"
+              ng-if="ctrl.contact.data.mobilePhone"
+              ng-click="ctrl.addToPhone()">
+        Guardar en mi celular
+      </button>
+
+      <button class="button button-block button-dark"
+              ng-click="ctrl.remove()">
+        Remove business card
+      </button>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,16 @@
+.adverts {
+    position: relative;
+    background: $dark;
+
+    &::before {
+        content: '';
+        display: block;
+        padding-top: 19%; // aspect ratio
+    }
+
+    .slider-outstanding {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}

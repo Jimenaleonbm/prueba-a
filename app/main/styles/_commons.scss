@@ -1,0 +1,341 @@
+body {
+  font: 300 ($ms-base * $base-rem) 'Lato', serif !important;
+  line-height: ($base * 130) / 100;
+  letter-spacing: .015em;
+}
+
+a, a:hover {
+  color: $black;
+  text-decoration: none;
+}
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cocogoose', serif !important;
+  letter-spacing: .125px !important;
+}
+input, select, textarea {
+  font-family: 'Lato', serif !important;
+  letter-spacing: .125px !important;
+}
+
+
+//colores/img de fondo
+.bg-img {
+  background: transparent url(../assets/images/fondoMenu.png)  no-repeat 0% 100%/cover;
+}
+.bg-brand {
+  background-color: $brandColor !important;
+}
+.bg-black {
+  background-color: $dark !important;
+}
+.bg-white{
+  background-color: $white !important;
+}
+.bg-royal {
+  background: $royal !important;
+}
+.bg-calm {
+  background: $calm !important;
+}
+.bg-positive {
+  background: $positive !important;
+}
+.bg-stable {
+  background: $stable !important;
+}
+.border-white {
+  border-color: $white !important;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.text-center {
+  text-align: center;
+}
+.td-underline {
+  text-decoration: underline;
+}
+
+
+//tipo de fuentes 
+.ff-lato {
+  font-family: 'Lato' !important;
+}
+.ff-cocogoose {
+  font-family: 'Cocogoose' !important;
+}
+
+//color de la fuente
+.color-white {
+  color: $white !important;
+}
+.color-brand {
+  color: $brandColor !important;
+}
+.color-calm {
+  color: $calm !important;
+}
+.color-royal {
+  color: $royal !important;
+}
+.color-assertive {
+  color: $assertive !important;
+}
+.color-black {
+  color: $black !important;
+}
+
+//font weights
+.fw-300 {
+  font-weight: 300 !important;
+}
+.fw-400 {
+  font-weight: 400 !important;
+}
+.fw-500 {
+  font-weight: 500 !important;
+}
+.fw-700 {
+  font-weight: 700 !important;
+}
+.fw-900 {
+  font-weight: 900 !important;
+}
+
+
+
+//margenes
+.mb, .mb1 {
+  margin-bottom: 1em !important;
+}
+.no-m {
+  margin: 0 !important;
+}
+.no-mt, .mt0 {
+  margin-top: 0 !important;
+}
+.no-mb {
+  margin-bottom: 0 !important;
+}
+
+
+.lh-1 {
+  line-height: 1;
+}
+
+
+//estilos para los items de ionic
+.no-bg, .no-bg.activated {
+  background: none;
+}
+.border-item, .border-color { 
+    //color de borde heredado del color de fuente
+    //ver linea6 col 84 en favlist.html
+    border-color: inherit !important;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+// bordes
+.no-border {
+  border: none;
+}
+.border-dashed {
+  border-style: dashed;
+}
+.border-color-alpha-25 {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+.border-color-royal {
+  border-color: $royal;
+}
+
+.pb {
+  padding-bottom: 1em;
+}
+
+//positions
+.pos-r {
+  position: relative;
+}
+
+//alinear eje y
+.alself-center {
+  align-self: center;
+}
+
+//grid from ionic
+.row, .col {
+  padding: 0;
+}
+
+.ico-right{
+  position: absolute;
+  right: 10%;
+}
+
+
+
+//columas
+.cols {
+  > .list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0; 
+  }
+  .item {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+  .row {
+    display: flex;
+    flex-wrap: no-wrap;
+  }
+  &.two-cols {
+    .item {
+      width: 50%;
+      min-width: 50%
+    }
+  }
+  &.three-cols {
+    .item {
+      width: 33.33%;
+      min-width: 33.33%;
+    }
+  }
+}
+
+//icono corazon en los titulos de speakers
+.like-icon.item-icon-right {
+  position: relative;
+  padding-right: 70px;
+  .ico {
+      display: block;
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      background: transparent no-repeat 0/25px;
+      top: 0;
+  }
+  .heart {
+    .ico-heart {
+      right: 35px;
+      font-size: 1.6rem; 
+    }
+  }
+  .share {
+    .ico-share {
+      background-image: url(../assets/images/share.svg);
+      right: 0;
+    }
+    .ico-share2 {
+      background-image: url(../assets/images/share2.svg);
+      right: 0;
+    }
+  }
+}
+
+//dot en el titulo conferencistas similares en speaker
+.dot {
+  padding-left: 1.5em !important;
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    width: .7em;
+    height: .7em;
+    border-radius: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-60%);
+    left: .125em;
+  }
+  &.dot-white:before {
+    background: $white;
+  }
+  &.dot-calm:before {
+    background: $calm;
+  }
+  &.dot-royal:before {
+    background: $royal;
+  }
+}
+
+/*estilos popup*/
+.popup {
+  .popup-buttons{
+    button.button-positive{
+      background-color: $brandColor;
+    }
+  }
+}
+
+
+//centrar sobre el eje Y el avatar y titulo
+.item-avatar.centerY {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+  > img:first-child {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.item-no-bgc {
+  background-color: transparent !important;
+}
+
+
+//straming en vivo
+.on-air {
+  i.icon {
+    top: 2px;
+    position: relative;
+    /*&:after {
+      content: '';
+      border: 5px solid white;
+      width: 100%;
+      height: 14px;
+      border-radius: 50%;
+      position: absolute;
+      left: 0px;
+      top: 2px;
+      background: none;
+      transition: all linear 250ms;
+    }*/
+  }
+}
+
+.d-block {
+  display: block;
+  width: 100%;
+}
+
+//temporal
+.ion-funnel {
+  &:before {
+    font-size: 20px !important;
+  }
+}
+
+//flex
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+.column {
+  flex-direction: column;
+}

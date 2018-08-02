@@ -1,0 +1,90 @@
+.surveys {
+  .header {
+    margin: 1rem 0;
+  }
+  .unica{ 
+    .list {
+      padding: 0;
+      margin-top: -1px;
+      label.item-radio {
+        input {
+          &:checked + .radio-content {
+            .item-content {
+              background: none;
+            }
+            .radio-icon {
+              border-color: $royal;
+              background: $royal;
+              &:before {
+                transform: scale(1);
+              }
+            }
+          }
+        }
+        .item-content {
+          font-weight: 900;
+        }
+        .radio-icon {
+          background: $white;
+          border-radius: 50%;
+          border: 2px solid #ddd;;
+          padding: 0;
+          line-height: 28px;
+          height: 30px;
+          width: 30px;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 10px;
+          visibility: visible;
+          font-size: 20px;
+          text-align: center;
+          transition: all linear 200ms;
+          &:before {
+            transition: all linear 250ms;
+            transform: scale(0);
+            color: $calm
+          }
+        }
+      }
+    }
+  }
+  .multiple {
+    .item {
+      background: none;
+      color: $black;
+      margin: -1px 0;
+      border-width: 1px 0;
+    }
+    label.item-checkbox {
+      input {
+        &:checked + .checkbox-icon {
+          &:after {
+            transform: scale(1) rotate(-45deg);;
+          }
+        }
+      }
+      .checkbox-icon {
+        &:before {
+          width: 23px;
+          height: 23px;
+          transition: all linear 200ms;
+        }
+        &:after {
+          border-width: 3px;
+          width: 16px;
+          height: 9px;
+          transition: all linear 250ms;
+          transform: scale(0) rotate(-45deg);
+        }
+      }
+    }
+  }
+  .button-bar {
+    margin-top: 2rem;
+    padding: 0 .5rem;
+  }
+  //bullets del slider
+  .swiper-pagination-bullet {
+    background: $brandColor;
+  }
+}

@@ -1,0 +1,63 @@
+<ion-view view-title="Mis favoritos" cache-view="false" class="programme favorites bg-white">
+  <!-- do you want padding? -->
+  <ion-content>
+
+    <div class="panel">
+      <ion-item class="item item-icon-right bg-white uppercase fz-2 ff-cocogoose color-black border-item"
+                ng-click="ctrl.selectItem('eventos')"
+                ng-class="{'active': ctrl.checkItem('eventos')}">
+        Eventos ({{(events.data.length > 0) ? events.data.length : 0}})
+        <i class="icon ion-ios-arrow-down color-black" ng-if="!ctrl.checkItem('eventos')"></i>
+        <i class="icon ion-ios-arrow-up color-black" ng-if="ctrl.checkItem('eventos')"></i>
+      </ion-item>
+      <!-- Lista: por hora  -->
+      <div ng-if="ctrl.checkItem('eventos')" ng-include="events.teaser"></div>
+    </div>
+
+    <div class="panel">
+      <ion-item class="item item-icon-right bg-white uppercase fz-2 ff-cocogoose color-black border-item"
+                ng-click="ctrl.selectItem('uno')"
+                ng-class="{'active': ctrl.checkItem('uno')}">
+        Agenda ({{(ctrl.favouritesLength.length > 0) ? ctrl.favouritesLength.length : 0}})
+        <i class="icon ion-ios-arrow-down color-black" ng-if="!ctrl.checkItem('uno')"></i>
+        <i class="icon ion-ios-arrow-up color-black" ng-if="ctrl.checkItem('uno')"></i>
+      </ion-item>
+      <!-- Lista: por hora  -->
+      <div class="group-by" ng-if="ctrl.checkItem('uno')">
+        <div class="list favourite" ng-repeat="(key, group) in ctrl.favouritesProgramme">
+          <div class="item fz-2 fw-900 uppercase color-assertive">{{key}}</div>
+          <ion-item class="conference lista item item-{{$index}} no-border no-m bg-white item-text-wrap line-up"
+             ng-repeat="conference in group"
+             ng-click="ctrl.ir(conference)"
+             ng-include="ctrl.tpl.teaser">
+          </ion-item>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <ion-item class="item item-icon-right bg-white color-black uppercase fz-2 ff-cocogoose border-item"
+                ng-click="ctrl.selectItem('dos')"
+                ng-class="{'active': ctrl.checkItem('dos')}">
+        Artistas ({{(ctrl.favouritesSpeakers.length > 0) ? ctrl.favouritesSpeakers.length : 0}})
+        <i class="icon ion-ios-arrow-down color-black font-normal" ng-if="!ctrl.checkItem('dos')"></i>
+        <i class="icon ion-ios-arrow-up color-black font-normal" ng-if="ctrl.checkItem('dos')"></i>
+      </ion-item>
+      <!-- Lista: por hora  -->
+
+      <div class="list favourite" ng-if="ctrl.checkItem('dos')">
+        <a class="item item-avatar centerY item-{{$index}} no-border no-m bg-white item-text-wrap"
+           ng-repeat="conference in ctrl.favourites.speakers | toArray | orderBy:'info.name'"
+           ui-sref="main.speaker({idSpeaker: conference.$id})">
+
+          <img ng-src="{{conference.info.image.fullsize}}">
+          <h3 class="name color-black uppercase fz-1 fw-900">
+            {{conference.info.name}}
+          </h3>
+        </a>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

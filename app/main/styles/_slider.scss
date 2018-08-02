@@ -1,0 +1,16 @@
+div.moc-slider {
+  position: relative;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 59%;
+  }
+
+  .moc-slider-dir {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+}

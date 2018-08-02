@@ -1,0 +1,13 @@
+.button {
+  min-height: 40px;
+  border-radius: 0;
+  line-height: 38px;
+  &.button-block, &.button-full {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  &.button-small {
+    min-height: 30px;
+    line-height: 26px;
+  }
+}

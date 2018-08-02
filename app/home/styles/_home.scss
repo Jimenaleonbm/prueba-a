@@ -1,0 +1,211 @@
+body.platform-android .bar-logo {
+  padding-right: 50px;
+}
+
+.social-share {
+  position: absolute;
+  display: flex;
+  top: 30px;
+  right: 15px;
+
+  > div {
+    width: 44px;
+    height: auto;
+  }
+}
+
+.bar-logo {
+  display: block;
+  height: 100%;
+  padding: .25em 0px .25em 0;
+  img {
+    height: 100%;
+    width: auto;
+    vertical-align: top;
+  }
+}
+
+.home {
+  .current-day {
+    position: relative;
+    display: block;
+    padding: .75em 16px;
+    .item-note {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      padding-right: 35px;
+      line-height: 2;
+      .icon {
+        &:before {
+          font-size: 19px;
+          width: 20px;
+        }
+      }
+    }
+  }
+  .actividad {
+    background: $light-gray;
+    padding: 10px 0;
+    margin: 0;
+  }
+  .swiper-slide {
+    .current-day {
+      padding-left: 16px;
+    }
+    .list .item {
+      border-width: 1px 0;
+      margin: -1px 0;
+      &:first-child {
+        border: 0;
+      }
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+
+  .relacionados {
+    .columns {
+      display: flex;
+      &.three .rows {
+        width: 60.5%;
+        min-width: 60.5%;
+        max-width: 200px;
+      }
+      .row {
+        padding: 0 !important;
+        + .row {
+          margin: 0;
+        }
+        .name-floating {
+          position: relative;
+          background: none;
+          width: 100%;
+          &:before {
+            content: '';
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            background: linear-gradient(to top, rgba($black, 0.7) 0%, rgba($black, 0.1) 100%)
+          }
+          .speaker-cover {
+            img {
+              max-width: initial;
+              width: 100%;
+            }
+          }
+          .speaker-name, .info {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: none;
+            height: initial;
+            padding: .25em .5em;
+          }
+          .info {
+            bottom: 50%;
+            transform: translateY(50%);
+            .tag {
+              border: 1px solid;
+              padding: .25em .75em;
+              display: inline-block;
+            }
+            h2 {
+              margin: .75em 0 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  //estilos para el footer
+  .bar-footer {
+    padding: 0 !important;
+    height: initial !important;
+    .button-bar {
+      button.button {
+        padding: 0;
+        border-radius: 0;
+        border-width: 0;
+        border-color: transparent transparent transparent $brandColor;
+        height: 45px;
+        min-height: 45px;
+        &.active {
+          background-color: $calm !important;
+          > span {
+            color: $royal !important;
+          }
+        }
+        > span {
+          display: block;
+          line-height: 1;
+          &:before {
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Estilos multi evento
+ */
+.general-evento {
+
+  .event-img {
+    position: relative;
+    background: $positive;
+
+    &::before {
+      content: '';
+      display: block;
+      padding-top: 60%;
+    }
+
+    img {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      left: 0;
+    }
+  }
+  .description {
+    position: relative;
+    padding: 30px 20px;
+  }
+
+  .event-description {
+    font, strong, span, p {
+      color: whitesmoke !important;
+    }
+  }
+
+  .tickets {
+    padding: 1.25rem 0;
+  }
+}
+.dinamic-content{
+  margin-bottom:20px;
+  position: relative;
+  &:after{
+    content: '';
+    width: 25%;
+    height: 1px;
+    background: #fff;
+    //position: absolute;
+    display: block;
+    margin-top: 10px;
+    left: 0;
+    bottom: 10px;   
+  }
+  &:last-of-type{
+    &:after{
+      display:none;
+    }
+  }
+}

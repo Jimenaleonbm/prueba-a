@@ -1,0 +1,30 @@
+<ion-view cache-view="false" view-title="" class="stream bg-white">
+
+  <ion-nav-title>{{item.name}}</ion-nav-title>
+
+  <ion-content>
+
+    <header ng-if="!item.links.url && item.image">
+      <div class="slider">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+
+          <ion-slide class="text-center">
+            <img style="max-width:100%;height:auto;" ng-src="{{item.image.fullsize}}">
+          </ion-slide>
+
+        </ion-slide-box>
+      </div>
+    </header>
+
+    <div class="video-container mb">
+      <youtube-video video-url="item.links.url"></youtube-video>
+    </div>
+
+    <div class="color-black padding">
+      <h1 class="fz1 ff-cocogoose color-calm no-mb">{{item.name}}</h1>
+      <p class="fw-500 fz-2">{{item.date | date: 'MMM d, yyyy'}}</p>
+      <p class="fz-1">{{item.description}}</p>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,130 @@
+<ion-view cache-view="true" class="speaker bg-black">
+
+  <ion-nav-title>{{ctrl.speaker.info.name}}</ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <a class="button button-clear fw-700 fz-4 color-calm" ui-sref="main.agenda">ver agenda</a>
+  </ion-nav-buttons>
+
+  <ion-content scroll="true" overflow-scroll="true">
+    <header>
+      <!--div class="slider" ng-if="ctrl.speaker.general.photo"-->
+      <div class="slider" ng-if="ctrl.speaker.info.image">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+
+          <ion-slide ng-repeat="image in ctrl.speaker.info.image" class="text-center">
+            <img style="max-width:100%;height:auto;" ng-src="{{image}}">
+          </ion-slide>
+
+        </ion-slide-box>
+      </div>
+    </header>
+
+    <article class="padding color-white fz-1">
+
+      <section class="info" style="padding-top: 1rem;">
+        <div class="speaker-name">
+          <h2 class="like-icon item-icon-right uppercase fz2 fw-900 ff-cocogoose color-calm">
+            <div class="color-calm fz-3">{{ctrl.track.name}}</div>
+            {{ctrl.speaker.info.name}}
+            <div class="heart" ng-if="!ctrl.user.isAnonymous">
+              <i class="ico  ion-ios-heart-outline ico-heart" style="right: 5px" ng-if="!ctrl.fav" ng-click="ctrl.favorito(true)"></i>
+              <i class="ico  ion-ios-heart ico-heart" style="right: 5px" ng-if="ctrl.fav" ng-click="ctrl.favorito(false)"></i>
+            </div>
+          </h2>
+        </div>
+      </section>
+
+
+      <div class="redes" ng-if="ctrl.speaker.info.networks">
+        <h2 class="ff-lato fw-400 fz0 color-white no-mb">Seguir en:</h2>
+        <social-networks model="ctrl.speaker.info.networks"></social-networks>
+      </div>
+
+
+      <section class="cargo fw-300">
+        <div ng-if="ctrl.speaker.info.title"><b>Rol:</b> {{ctrl.speaker.info.title}}</div>
+      </section>
+
+      <section class="country fw-300">
+        <div ng-if="ctrl.speaker.info.country"><b>Pais:</b> {{ctrl.speaker.info.country}}</div>
+      </section>
+
+      <section class="company fw-300">
+        <div ng-if="ctrl.speaker.info.company"><b>Organizacion:</b> {{ctrl.speaker.info.company}}</div>
+      </section>
+
+      <section class="knowledge fw-300">
+        <div ng-if="ctrl.speaker.info.knowledge"><b>Estudios:</b> {{ctrl.speaker.info.knowledge}}</div>
+      </section>
+
+      <section ng-if="ctrl.speaker.info.description" class="description fw-300">
+        <div>{{ctrl.speaker.info.description}}</div>
+      </section>
+
+      <br>
+
+      <section ng-if="ctrl.speaker.info.focus" class="enfoque fw-300">
+        <h2 class="fz-3 color-white ff-lato fw-700 uppercase">Enfoque:</h2>
+        <p>{{ctrl.speaker.info.focus}}</p>
+      </section>
+
+      <section ng-if="ctrl.speaker.info.trayectoria" class="trayectoria fw-300">
+        <h2 class="fz-3 color-white ff-lato fw-700 uppercase">Trayectoria:</h2>
+        <p>{{ctrl.speaker.info.trayectoria}}</p>
+      </section>
+
+      <section ng-if="ctrl.speaker.info.hitos" class="hitos fw-300">
+        <h2 class="fz-3 color-white ff-lato fw-700 uppercase">Hitos:</h2>
+        <p>{{ctrl.speaker.info.hitos}}</p>
+      </section>
+
+
+      <!-- CONFERENCIA RELACIONADA -->
+      <section class="conference" ng-if="ctrl.sessions.data">
+        <h2 class="fz-2 color-white ff-lato fw-700 dot dot-calm">Agenda</h2>
+
+        <div ng-repeat="session in ctrl.sessions.data" class="description">
+          <header>
+            <h3 class="fz-1 color-white ff-lato fw-700 uppercase">{{session.info.name}}</h3>
+            <div class="fz-3 fw-900 color-white" ng-show="ctrl.scenarios[session.info.place]">{{ctrl.scenarios[session.info.place].name}}</div>
+            <time class="date fw-900 fz-2 color-white">
+              <span class="day">{{session.info.date}}</span> - <span class="hour">{{session.info.hourFrom.hour}}:{{session.info.hourFrom.minutes}}</span>
+            </time>
+          </header>
+          <section class="info fw-300 color-white" ng-show="session.info.description">
+            <p>{{session.info.description | limitTo: 200}}{{(session.info.description.length > 200) ? '...' : ''}}</p>
+          </section>
+        </div>
+
+      </section><!-- /.CONFERENCIA RELACIONADA -->
+
+    </article>
+
+    <section class="relacionados">
+
+      <ion-scroll direction="x" class="list-horizontal" overflow-scroll="true">
+
+        <div class="cols two-cols">
+          <div class="row">
+
+            <div class="item list-horizontal-item name-floating" ng-repeat="speaker in ctrl.related" ui-sref="main.speaker({idSpeaker: speaker.$key})">
+              <div class="speaker-cover">
+                <img ng-src="{{speaker.info.image.fullsize}}">
+              </div>
+
+              <h2 class="speaker-name uppercase text-center color-white fz-3 fw-500 ff-lato speaker-name-align">
+                {{speaker.info.name}}
+              </h2>
+            </div>
+
+          </div>
+        </div>
+
+      </ion-scroll>
+
+    </section>
+
+
+  </ion-content>
+</ion-view>

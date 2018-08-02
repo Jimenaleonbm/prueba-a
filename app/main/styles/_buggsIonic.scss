@@ -1,0 +1,13 @@
+.platform-android {
+  .nav-bar-tabs-top.hide ~ .view-container .tabs-top .tabs {
+    top: 44px !important;  
+  }
+}
+
+
+//remove background for items con estado activated
+.item, .item-content {
+  &.activated {
+    background: none !important;
+  }
+}

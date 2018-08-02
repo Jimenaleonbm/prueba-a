@@ -1,0 +1,53 @@
+<ion-view cache-view="true" view-title="Attendees">
+    <ion-nav-buttons side="left">
+        <a class="button button-clear icon ion-ios-arrow-left" ng-click="ctrl.goHome()">Home</a>
+    </ion-nav-buttons>
+
+    <div class="full-size bg-img" style="background-image: url({{ctrl.event.data.image}})"></div>
+
+    <!-- do you want padding? -->
+    <ion-content class="programme-section gradient padding">
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search attendees" ng-model="searchAttendees">
+            </label>
+        </div>
+
+        <ion-list class="list block-border color-white no-bg-color list-custom" can-swipe="false">
+
+            <ion-item class="item item-icon-right no-bg-color item-text-wrap" collection-repeat="item in ctrl.attendees.data | toArray | orderBy: 'lastname' | filter: searchAttendees">
+                <h2 class="swiss">{{item.first_name}} {{item.last_name}}</h2>
+
+                <p class="f-xs">
+                    {{item.company}}
+                    <span ng-if="item.fireuser.requests[ctrl.fbuserid] === false"> - Pending approval</span>
+                    <span class="f-xs" ng-if="item.fireuser.requests[ctrl.fbuserid]"> - Already in your business cards</span>
+                </p>
+
+                <div class="icon ion-android-more-vertical" click-for-options></div>
+
+                <ion-option-button class="button-light button-outline f-xs"
+                                   ng-if="item.fireuser.requests[ctrl.fbuserid] !== true"
+                                   ng-click="ctrl.request(item.id)">
+                    <span ng-if="item.fireuser.requests[ctrl.fbuserid] === undefined">Request business card</span>
+                    <span ng-if="item.fireuser.requests[ctrl.fbuserid] === false">Pending approval</span>
+                </ion-option-button>
+
+                <ion-option-button class="button-light button-outline f-xs"
+                                   ng-if="item.fireuser.requests[ctrl.fbuserid]"
+                                   ui-sref="event.networking.attendeeCardDetail({contactID: item.id})">
+                    View business card
+                </ion-option-button>
+
+                <ion-option-button class="button-light button-outline f-xs"
+                                   ui-sref="chats.chat({chatID: item.id})">
+                    Send chat message
+                </ion-option-button>
+            </ion-item>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

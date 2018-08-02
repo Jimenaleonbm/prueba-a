@@ -1,0 +1,53 @@
+<ion-view title="" class="sponsor-detalle bg-brand">
+
+  <ion-nav-title>{{ctrl.exchange.company}}</ion-nav-title>
+
+  <ion-content scroll="true">
+    <header>
+      <div class="cover-imagen">
+        <img ng-src="{{ctrl.exchange.banner}}">
+      </div>
+    </header>
+    <article class="padding">
+
+      <section class="info">
+        <div class="sponsor-name">
+          <div class="title uppercase font-huge fw-900">
+            {{ctrl.exchange.company}}
+          </div>
+          <div class="icono icono-like"></div>
+        </div>
+        <div class="sponsor-website">
+          <span class="fw-300 td-underline" ng-click="ctrl.openUrl(ctrl.exchange.website)">{{ctrl.exchange.website}}</span>
+        </div>
+      </section>
+
+      <section class="description fw-300">
+        <div ta-bind="text" ng-model="ctrl.exchange.description" ng-if="ctrl.exchange.description"></div>
+      </section>
+
+      <section class="info-sponsor">
+        <div ng-if="ctrl.exchange.phone">
+          <h4 class="lineZigZag negro top fw-900 font-small uppercase no-mb">Direccion:</h4>
+          <p class="fw-300">{{ctrl.exchange.address}}</p>
+        </div>
+
+        <div ng-if="ctrl.exchange.phone">
+          <h4 class="fw-900 font-small uppercase no-mb">Telefono:</h4>
+          <p class="fw-300">{{ctrl.exchange.phone}}</p>
+        </div>
+      </section>
+
+      <div class="social-networks color-white">
+        <div class="red {{key}} fw-400 font-mini" ng-repeat="(key, red) in ctrl.exchange.networks">
+          <a ng-href="{{red.url}}">{{red.name}}</a>
+        </div>
+      </div>
+
+      <section class="tags text-center">
+        <span ng-repeat="tag in ctrl.exchange.tags" class="td-underline fw-400 font-small" ui-sref="evento.hashtags({tipo: 'sponsors', hashtag: tag})">{{tag}}</span>
+      </section>
+
+    </article>
+  </ion-content>
+</ion-view>

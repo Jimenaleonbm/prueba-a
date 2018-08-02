@@ -1,0 +1,46 @@
+<ion-view view-title="Mapas y rutas" class="venue bg-white">
+
+    <ion-content class="has-header">
+
+        <ion-list>
+
+            <ion-item ng-repeat="venue in ctrl.venues" ng-click="ctrl.setMap(venue.map, venue.id)"
+                      ng-class="{'active': ctrl.checkActive(venue.id)}" class="bg-white" style="padding-top: 0;">
+
+                <div class="venue-img" ng-if="venue.image" style="margin: 0 -15px;">
+                    <img ng-src="{{venue.image.fullsize}}">
+                </div>
+
+                <div class="item item-button-right no-border item-text-wrap" ng-click="ctrl.setImg(venue.id)" style="padding-top: 1rem;">
+                    <h2 class="uppercase fw-900 ff-cocogoose fw-2 color-calm">{{venue.name}}</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="content-conferencia item-text-wrap mb">
+                            <h3 class="ff-lato fz-3 fw-700 color-black uppercase">{{venue.address}}</h3>
+                            <div class="description fw-300 fz-2 color-black" ng-bind-html="venue.description"></div>
+                        </div>
+                        <div class="conference">
+                            <h4 class="fw-900 fz-2 ff-lato">Servicios:</h4>
+                            <div class="content-icons">
+                                <span ng-if="venue.services.discapacidad" class="silla"></span>
+                                <span ng-if="venue.services.wifi" class="wifi"></span>
+                                <span ng-if="venue.services.parqueadero" class="park"></span>
+                            </div>
+                        </div>
+
+                        <div ng-if="venue.coordinates">
+                            <div class="button button-calm button-small fw-900"
+                                 ng-click="ctrl.comoLlegar.hallarRuta(venue.map.lat, venue.map.lng)">¿Cómo llegar?
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </ion-item>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

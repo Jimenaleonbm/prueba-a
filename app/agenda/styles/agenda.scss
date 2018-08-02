@@ -1,0 +1,174 @@
+@import '../../main/styles/variables';
+@import '../../main/styles/main';
+@import 'filter-agenda';
+// tabs ios
+.platform-ios.platform-cordova:not(.fullscreen) .programme .has-subheader {
+  top: 112px;
+}
+
+.evento.detalle header {
+  position: relative;
+  background-position: 0 -60px;
+  margin: 0 15px 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid $black;
+}
+
+//estilos para los tabs/dias del programa
+.bar-subheader {
+  padding: 0 !important;
+  height: initial !important;
+  .button-bar {
+    button.button {
+      padding: 0;
+      border-radius: 0;
+      border-width: 0;
+      border-color: transparent transparent transparent $brandColor;
+      height: 45px;
+      min-height: 45px;
+      &.active {
+        background-color:$calm !important;
+        > span {
+          color: $royal !important;
+        }
+      }
+      > span {
+        display: block;
+        line-height: 1;
+      }
+    }
+  }
+} 
+
+
+//estilos para colocar la linea en el programa
+.line-up {
+  padding-left: 2.5rem !important;
+  position: relative;
+  &:before {
+    content: '';
+    width: 1px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 1.125rem;
+    top: 0;
+    border-left: 1px dashed black;
+  }
+  &:last-of-type {
+    &:before {
+      height: 47px;
+    }
+  }
+  h3.name {
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      width: 9px;
+      height: 9px;
+      background: $dark;
+      border-radius: 50%;
+      left: calc(-1.125rem - 8px);
+      top: 4px;
+      position: absolute;
+    }
+  }
+}
+
+
+//estilos para el acordeon
+.programme {
+  .track-group {
+    .track-title {
+      i.icon {
+        transition: transform 328.663ms cubic-bezier(0.09, -1.03, 0.79, 1.71) 50ms;
+        transform: rotate(0);
+      }
+      &.active, &.activated {
+        background: transparent;
+        i.icon {
+          transform: rotate(135deg);
+        }
+      }
+    }
+  }
+}
+
+
+.programme {
+  .conference.item {
+    &.active, &.activo, &.activated {
+      .name, .time {
+        color: $calm !important;
+        &:before {
+          background: $calm;
+        }
+      }
+    }
+    .control {
+      &.active {
+        .name {
+          color: $calm !important;
+          &:before {
+            background: $calm;
+          }
+        }
+      } 
+    }
+    .tags {
+      margin-top: .75rem;
+      .tag {
+        border: 1px solid;
+        vertical-align: top;
+        display: inline-block;
+        padding: 0px 6px;
+        margin: 0 .5rem 0 0;
+        color: $calm;
+      }
+    }
+  }
+}
+
+.prog-detalle-wrapper{
+  position: relative;
+  padding: 15px;
+}
+
+.tabs.tabs-transparent {
+  border-color: transparent !important;
+  background: transparent !important;
+  color: $black;
+}
+
+.tabs-stable {
+  .tab-item{
+      color: $assertive !important;
+       > span {
+        display: block;
+        line-height: 1.2;
+        letter-spacing: 1px; 
+        &:nth-child(1){
+          margin-top: 9px;
+          letter-spacing: 0;
+        }
+      }
+  }
+  .tab-item.active {
+    border-color: $assertive !important;
+    border-width: 4px 0 0 0 !important;
+  }
+}
+.conference.session-active {
+  h3, h2 {
+    color: $assertive !important;
+  }
+}
+
+.track-title{
+  border-color: $royal;
+  border-style: solid;
+  border-width: 1px 0; 
+  margin: 10px 0;
+}
+

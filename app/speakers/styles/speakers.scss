@@ -1,0 +1,93 @@
+@import '../../main/styles/variables';
+.speakers {
+  .speaker-name {
+    background-color: $navbarBg;
+    padding: 0;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+		flex-wrap: wrap;
+  }
+}
+
+//nombre sobre la imagen 
+.speakers, .speaker {
+	.name-floating {
+	position: relative;
+	background: none;
+		&:before {
+			content: '';
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			background: linear-gradient(to top, rgba($black, 0.7) 0%, rgba($black, 0) 30%)
+		}
+		.speaker-name {
+			position: absolute;
+			bottom: 10px;
+			width: 100%;
+			background: $black;
+			height: initial;
+			padding: .5em .75em;
+		}
+  }
+}
+
+.speakers {
+	.speaker-cover {
+		background: transparent url('../../main/assets/images/new.png') no-repeat center/cover;
+		position: relative;
+		padding: 50% 0;
+		img {
+			position: absolute;
+			top: 0;
+		}
+	}
+}
+
+.speaker {
+	section > p {
+		margin-bottom: 2em;
+	}
+
+	.cargo, .company, .country {
+		margin-bottom: .125em;
+	}
+
+	.description {
+		position: relative;
+		margin: 1.5em 0;
+		padding: 1em 0;
+		&:before, &:after {
+			content: '';
+			width: 25%;
+			height: 1px;
+			background: $white;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		&:after {
+			top: initial;
+			bottom: 0;
+		}
+	}
+
+	.relacionados {
+		h2.dot {
+			margin-left: .75em;
+		}
+	}
+	.cols {
+	  &.two-cols {
+		.item {
+			width: 40.5%;
+			min-width: 40.5%;
+			max-width: 200px;
+		}
+	  }
+	}
+}

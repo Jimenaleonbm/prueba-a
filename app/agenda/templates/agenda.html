@@ -1,0 +1,96 @@
+<ion-view view-title="" class="programme bg-white"> 
+
+  <ion-nav-title>{{ctrl.title.value}}</ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <div ng-if>
+      <div class="button button-icon icon ion-funnel fz-2 fw-500"
+           ng-class="{'color-calm': ctrl.filter.CHECK.type || ctrl.filter.CHECK.track}"
+           ng-click="ctrl.filter.toggle()"
+           ng-if="!ctrl.filter.popup.value"> Filtrar</div>
+
+      <div class="button button-clear fz-2 fw-500"
+           ng-class="{'color-calm': ctrl.filter.CHECK.type || ctrl.filter.CHECK.track}"
+           ng-click="ctrl.init(true)"
+           ng-if="ctrl.filter.popup.value">Filtrar</div>
+    </div>
+  </ion-nav-buttons>
+
+  <!-- Template: filtro -->
+  <div ng-include="ctrl.tpl.filter" class="filter-agenda-parent has-header"></div>
+  
+  <div class="bar bar-dark bar-subheader">
+    <div class="button-bar">
+      <button ng-repeat="day in ctrl.days" class="button" ng-class="{'active': ctrl.isSelected(day.name)}" ng-click="ctrl.selectPanel(day.name)">
+        <span class="day uppercase color-white fz1 fw-900">{{day.value| date : 'dd' }}</span>
+        <span class="month uppercase color-white  fw-300 fz-4">{{day.value| date : 'MMM' }}</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Directiva: groupby - tabs inferiores -->
+  <groupby ng-if></groupby>
+
+  <!-- do you want padding? -->
+  <ion-content class="has-subheader has-header has-footer has-footer">
+
+
+    <p ng-if="!agenda">No hay agenda para este evento {{agenda | json}}</p>
+    <p class="color-royal" ng-if="ctrl.filter.CHECK.empty">No encontramos resultados, con tus criterios de busqueda.</p>
+
+    <!-- content goes here -->
+    <!-- Panel -->
+    <div class="panel" ng-repeat="(key, group) in ctrl.agenda" ng-if="ctrl.isSelected(key)" style="padding-bottom: 50px;">
+      <div style="left: 12%; top: 7px;"></div>
+      <!-- Lista: por hora  -->
+      <section class="group-by group-by-hour">
+        <ion-list class="conferences">
+          <ion-item class="conference lista item item-{{$index}} no-border bg-white item-text-wrap line-up"
+                    ng-repeat="conference in group"
+                    ng-click="ctrl.ir(conference)"
+                    ng-include="ctrl.tpl.teaser">
+            
+          </ion-item>
+        </ion-list>
+      </section>
+
+      <!-- Lista: por tracks  -->
+      <section class="group-by group-by-track" ng-if="ctrl.groupby.isSelected('track')">
+
+        <div class="track-group" ng-repeat="(key, tracks) in group | groupBy: 'info.track'">
+          <div class="track-title ff-cocogoose royal fw0 padding uppercase item item-icon-right border-color" ng-class="{'active':ctrl.isAcordionSelected(key)}" ng-click="ctrl.selectAcordion(key)">
+            {{ctrl.getTrack(key)}}
+            <i class="icon ion-ios-plus-empty"></i>
+          </div>
+          <div class="conferences list" ng-show="ctrl.isAcordionSelected(key)">
+            <a class="conference lista mt0 item item-{{$index}} no-border bg-white item-text-wrap line-up"
+               ng-repeat="conference in tracks | orderBy:'info.startInteger'"
+               ng-click="ctrl.ir(conference)"
+               ng-include="ctrl.tpl.teaser">
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lista: por categorias (tipos de sesion)  -->
+      <section class="group-by group-by-track" ng-if="ctrl.groupby.isSelected('category')">
+
+        <div class="track-group" ng-repeat="(key, tracks) in group | groupBy: 'info.type'">
+          <div class="track-title ff-cocogoose royal fw0 padding uppercase  item item-icon-right border-color" ng-class="{'active':ctrl.isAcordionSelected(key)}" ng-click="ctrl.selectAcordion(key)">
+            {{ctrl.getType(key)}}
+            <i class="icon ion-ios-plus-empty"></i>
+          </div>
+          <div class="conferences list" ng-show="ctrl.isAcordionSelected(key)">
+            <a class="conference lista mt0 item item-{{$index}} no-border bg-white item-text-wrap line-up"
+               ng-repeat="conference in tracks | orderBy:'info.startInteger'"
+               ng-click="ctrl.ir(conference)"
+               ng-include="ctrl.tpl.teaser">
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.panel -->
+
+  </ion-content>
+</ion-view>

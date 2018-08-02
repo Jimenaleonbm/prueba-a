@@ -1,0 +1,40 @@
+<ion-view view-title="EDIT">
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear fw900 fz-3 icon" ng-click="ctrl.edit(form.message)">
+      SAVE
+    </button>
+  </ion-nav-buttons>
+
+  <!-- do you want padding? -->
+
+  <ion-content class="has-footer">
+
+    <div class="item item-avatar no-border">
+      <img ng-src="{{ (ctrl.user.image) ? ctrl.user.image : 'main/assets/images/avatar.png';}}" style="border-radius: 0;">
+      <h4 class="fz0">{{ctrl.user.name}}</h4>
+    </div>
+
+    <div class="text-area padding" style="padding-top: 0;">
+
+      <textarea id="post_edit" cols="30" rows="10" ng-model="form.message" placeholder="Edit your comment" style="width:100%"></textarea>
+      <!--
+      <input id="post_edit" cols="30" rows="10" ng-model ="ctrl.comment" placeholder="Edit your comment" style="width:100%">
+    -->
+    </div>
+
+    <div class="post-img" ng-if="ctrl.image.url">
+      <div class="button button-icon icon ion-close" ng-click="ctrl.clearImage()"></div>
+      <img ng-src="{{ctrl.image.url}}">
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar>
+    <div class="button-bar">
+      <button class="button button-balanced" ng-click="ctrl.changeImage()">Tomar Foto</button>
+      <button class="button button-balanced" ng-click="ctrl.changeImage(true)">Biblioteca</button>
+    </div>
+  </ion-footer-bar>
+
+</ion-view>

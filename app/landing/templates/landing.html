@@ -1,0 +1,20 @@
+<ion-view  class="home bg-stable">
+    <ion-nav-title class="bar-logo text-center">
+        <img ng-src="main/assets/images/logo.png">
+    </ion-nav-title>
+    <ion-content scroll="true" overflow-scroll="true">
+        <section class="relacionados" ng-include="events.tpl"></section>
+        <adverts></adverts>
+        <section class="ultimas-noticias" ng-include="news.tpl"></section>
+    </ion-content>
+
+    <!--ir a la ventana de chat-->
+<!--     <div class="bar bar-footer bar-calm">
+        <div class="button-bar">
+            <button class="button" ng-click="footerGo('chats')">
+                <span class="icon ion-chatbubbles color-white"></span>
+                <span class="day uppercase color-white ff-lato fz-3 fw-900">Chats</span>
+            </button>
+        </div>
+    </div> -->
+</ion-view>

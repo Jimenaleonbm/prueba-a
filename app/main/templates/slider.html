@@ -1,0 +1,7 @@
+<div class="moc-slider">
+    <ion-slides options="sliderOptions" slider="slider" class="moc-slider-dir" autoplay="true">
+        <ion-slide-page  ng-repeat="item in items">
+            <div ng-include="getTemplate(item.type)"></div>
+        </ion-slide-page>
+    </ion-slides>
+</div>

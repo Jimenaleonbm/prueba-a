@@ -1,0 +1,83 @@
+<ion-view view-title="home" class="home bg-black">
+
+    <ion-nav-title class="bar-logo text-center">
+        <img ng-src="main/assets/images/logo.png">
+    </ion-nav-title>
+
+    <ion-content scroll="true" class="has-footer" delegate-handle="HomeScroll" overflow-scroll="true">
+        <div class="box general">
+            <a class="current-day fz-2 fw-500 bg-black" href="#">
+                <time class="uppercase color-royal">{{::event.dateFrom}}</time>
+                <span class="item-note color-white fz-2 fw-500 item-icon-right" ui-sref="main.agenda">
+                    Ver agenda <i class="icon ion-ios-arrow-forward"></i>
+                </span>
+            </a>
+            <moc-slider items="event.slider" ng-click="foo()">></moc-slider>
+            <img style="display: none;" id="imageid" ng-if="event.image" ng-src="{{event.image.fullsize}}">
+        </div>
+
+                <!--<img ng-src="event/assets/images/documents.svg">-->
+
+        <div class="box general-evento">
+
+            <div class="description fw-500 ff-lato fz-1 color-white">
+
+                <div class="titulo-evento fw-700 fz6 color-calm">{{::event.name}}</div>
+
+                <div class="fw-900" ng-if="event.dateFrom">{{::event.dateFrom}}</div>
+                <div ng-if="event.place">{{::event.place}}</div>
+                <div ng-if="event.city">{{::event.city}}</div>
+                <div class="social-share" ng-if="!ctrl.user.isAnonymous">
+                    <div class="button button-icon ion-android-share-alt button-calm fz6"
+                         ng-class="(fav.selected) ? 'ion-ios-heart ico-heart' : 'ion-ios-heart-outline ico-heart'"
+                         ng-click="toggle_fav(fav.selected)"></div>
+                    <!--<div class="button button-icon ion-android-share-alt button-calm fz6"
+                         ng-click="ctrl.share()"></div>-->
+                </div>
+                <div class="tickets" ng-if="event.tickets">
+                    <div class="button button-calm" ng-click="link(event.tickets)">
+                        Boletería
+                    </div>
+                </div>
+
+                <div class="redes">
+                    <h2 class="ff-lato fw-400 fz0 color-white no-mb">Compartir en:</h2>
+                    <section class="social-networks">
+                        <a class="button button-icon icon ion-social-facebook"
+                           href="#" ng-click="shareFaceBook()"></a>
+                        <a class="button button-icon icon ion-social-instagram"
+                           href="#" ng-click="shareInstagram()"></a>
+                    </section>
+                </div>
+                <div class="redes" ng-if="event.networks">
+                    <h2 class="ff-lato fw-400 fz0 color-white no-mb">Seguir en:</h2>
+                    <social-networks model="event.networks"></social-networks>
+                </div>
+                <!--
+                <div ng-click="ctrl.goToFaq()" class="icon feedback button button-light button-outline button-small" class="item item-icon-left"><i class="icon ion-help-circled">FAQS</i></div>
+              -->
+                <div class="dinamic-content"  ng-repeat="item in content track by $index" ng-include="get_content_tpl(item.type)">
+                </div>
+
+            </div>
+        </div>
+
+    </ion-content>
+
+    <div class="bar bar-footer bar-calm">
+        <div class="button-bar">
+            <button class="button" ng-click="goTo('global.landing', true)">
+                <span class="icon ion-home color-white"></span>
+                <span class="day uppercase color-white ff-lato fz-3 fw-900">Home</span>
+            </button>
+            <button class="button" ng-click="footerGo('main.favourites')">
+                <span class="icon ion-ios-heart color-white"></span>
+                <span class="day uppercase color-white ff-lato fz-3 fw-900">Favoritos</span>
+            </button>
+            <button class="button" ng-click="footerGo('main.wall')">
+                <span class="icon ion-earth color-white"></span>
+                <span class="day uppercase color-white ff-lato fz-3 fw-900">Wall</span>
+            </button>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,61 @@
+<ion-view class="login auth" hide-nav-bar="true">
+    <ion-content>
+        <header class="text-center">
+            <div class="header-img">
+                <img ng-src="main/assets/images/header-img.png">
+            </div>
+            <div class="logo">
+                <img ng-src="main/assets/images/logo.png">
+            </div>
+        </header>
+
+        <div class="list list-inset input item-no-bgc">
+
+            <div>
+                <button class="button button-block color-royal fw-700 ff-lato fz-1 no-mb"
+                        style="background-color: rgb(66, 103, 178)"
+                        ng-click="loginWithFacebook()">
+                    Ingresa con facebook
+                </button>
+                <button class="button button-block color-royal fw-700 ff-lato fz-1 no-mb"
+                        style="background-color: rgb(37, 33, 34)"
+                        ui-sref="register">
+                    Crea tu perfil
+                </button>
+            </div>
+
+            <!--div-- class="text-center ff-lato fw-500 color-black ph-black fz-2">Iniciar sesión</div-->
+
+            <label class="item item-input item-floating-label">
+                <span class="input-label color-black ph-black fz-2">Email</span>
+                <input type="email" placeholder="Email" ng-model="email" class="fz0 color-black ph-black">
+            </label>
+
+            <label class="item item-input item-floating-label">
+                <span class="input-label color-black ph-black fz-2">Contraseña</span>
+                <input type="password" placeholder="Contraseña" ng-model="password" class="fz0 color-black ph-black">
+            </label>
+
+            <div class="action-buttons">
+                <button class="button button-block button-calm color-white fw-700 ff-lato fz-1"
+                        ng-click="login(email, password)">Ingresar
+                </button>
+            </div>
+
+            <div class="auth-options fz-2 text-center">
+                <div class="back-to-login">
+                    <a class="pd td-underline color-black" ng-click="anonimo()">Ingresar como Invitado</a>
+                </div>
+            </div>
+
+            <div class="auth-options fz-2 text-center">
+                <div class="back-to-login">
+                    <a class="pd td-underline color-black" ng-click="forgotPassword()">¿Olvidaste tu contraseña?</a>
+                </div>
+            </div>
+
+        </div>
+
+
+    </ion-content>
+</ion-view>

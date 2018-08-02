@@ -1,0 +1,63 @@
+@import '../../main/styles/main';
+.filter-agenda-parent {
+    position: relative;
+    ion-content.has-header {
+        top: 0;
+    }
+    .button-bar {
+        padding: 20px;
+        width: 80%;
+        margin: 0 auto;
+        .button{
+            border-radius: 0px 0px 0px 0px !important;
+            background-color: transparent;
+            border-color: #fff;
+            color: #fff;
+            min-height: 32px;
+            height: 32px;
+            line-height: 30px;
+            padding: 0 5px;
+            &.active {
+                background-color: #fff;
+                border-color: #fff;
+                color: $assertive;
+            }
+        }
+    }
+    .filter-agenda {
+        // background: transparent url(../../main/assets/images/fondoMenu.png) no-repeat 0% 100%/cover;
+        background: $light-gray;
+        min-height: calc(100vh - 44px);
+        position: relative;
+        z-index: 999;
+        .list {
+                border-style: solid;
+                border-color: #979797;
+                border-width: 1px 0;
+            .item {
+                padding: 12px 15px;
+                padding-left: 85px;
+                background-color: transparent;
+                font-size: .8rem !important;
+                color: #fff;
+                border-bottom: 1px solid #979797;
+                &:last-child{
+                    border-bottom: none;
+                }
+                .checkbox-icon {
+                    margin-left: 15px;
+                   &:before{
+                    background: none;
+                   }
+                }
+                .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:before {
+                        background: $calm !important;
+                        border-color: $calm !important; 
+                }
+                   .checkbox input:checked:before, .checkbox input:checked + .checkbox-icon:after {
+                        border-color :$royal;   
+                    }
+            }
+        }
+    }
+}

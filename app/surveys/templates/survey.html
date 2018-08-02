@@ -1,0 +1,40 @@
+<ion-view class="bg-white surveys" title="Encuesta" cache-view="false">
+  <ion-content>
+
+    <ion-slides slider="slider" style="height: 500px;">
+      <ion-slide-page ng-repeat="(key, question) in questions">
+        <div class="header text-center color-black fz-3 ff-cocogoose">{{question.ask}}</div>
+
+        <div class="unica" ng-if="types[question.type] == 'unica'">
+          <ion-list class="color-black fw-900" ng-init="response[key] = ''" ng-repeat="(id, answer) in question.answers">
+            <ion-radio name="{{key}}" class="fw-900 fz-4" ng-model="response[key]" value="{{id}}">{{answer}}</ion-radio>
+          </ion-list>
+        </div>
+
+        <div class="multiple" ng-if="types[question.type] == 'multiple'">
+          <ion-list class="color-black fw-900" ng-init="response[key] = []">
+            <ion-checkbox ng-repeat="(id, answer) in question.answers" ng-click="element(key, id)" ng-selected="response[key].indexOf(id) > -1">
+              {{answer}}
+            </ion-checkbox>
+          </ion-list>
+        </div>
+
+        <div ng-if="types[question.type] == 'orden'">
+          <ion-list ng-init="response[key] = []">
+            <ion-item class="color-black fw-900" ng-repeat="(id, answer) in question.answers" ng-click="element(key, id)">
+              {{answer}}
+              <span class="badge badge-assertive" ng-show="response[key].indexOf(id) > -1">{{response[key].indexOf(id) + 1}}</span>
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <div class="button-bar">
+          <button class="button button-block button-calm color-royal ff-cocogoose" ng-if="$index > 0" ng-click="slider.slidePrev()">Anterior</button>
+          <button class="button button-block button-calm color-royal ff-cocogoose" ng-if="$index < lengthQuestions" ng-click="slider.slideNext()" ng-disabled="response[key].length == 0">Siguiente</button>
+          <button class="button button-block button-calm color-royal ff-cocogoose" ng-if="$index == lengthQuestions" ng-click="save()" ng-disabled="response[key].length == 0">Enviar</button>
+        </div>
+      </ion-slide-page>
+    </ion-slides>
+
+  </ion-content>
+</ion-view>

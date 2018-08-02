@@ -1,0 +1,16 @@
+<ion-view view-title="Videos" class=" stream bg-white">
+    <ion-content>
+
+        <div class="list no-bg" style="margin-bottom: 0;">
+
+            <a class="item item-thumbnail-left item-text-wrap" ng-repeat="item in list.data" ui-sref="global.livestream({streaming: item})">
+                <img ng-if="!item.image" src="main/assets/images/new.png">
+                <img ng-if="item.image" ng-src="{{item.image.fullsize}}">
+                <p class="fz-3 fw-700 color-black">{{item.date | date: 'MMM d, yyyy - h:mm a'}}</p>
+                <h2 class="fz-1 color-calm">{{item.name}}</h2>
+                <p>{{item.description | limitTo: 80}}{{ (item.description.length > 80) ?  '...' : '' }}</p>
+            </a>
+
+        </div>
+    </ion-content>
+</ion-view>

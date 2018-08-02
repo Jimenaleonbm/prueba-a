@@ -1,0 +1,152 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "test": "gulp build --minify && gulp karma",
+    "start": "gulp watch",
+    "watch": "npm start",
+    "prepare:all": "gulp --cordova 'prepare'",
+    "livereload:ios": "gulp --livereload 'run ios'",
+    "livereload:android": "gulp --livereload 'run android'",
+    "run:ios": "gulp --cordova 'run ios",
+    "run:android": "gulp --cordova 'run android'",
+    "watch:build": "gulp watch-build",
+    "build": "gulp build --minify",
+    "postinstall": "./node_modules/protractor/bin/webdriver-manager update"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.8.3",
+    "chalk": "^1.1.0",
+    "cordova": "~6.5.0",
+    "del": "^2.0.0",
+    "elementtree": "^0.1.6",
+    "eslint": "^3.0.0",
+    "gulp": "^3.9.0",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-autoprefixer": "^3.0.1",
+    "gulp-changed": "^2.0.0",
+    "gulp-csso": "^3.0.0",
+    "gulp-eslint": "^3.0.0",
+    "gulp-filter": "^5.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-inject": "^4.0.0",
+    "gulp-jsonlint": "^1.1.0",
+    "gulp-load-plugins": "^1.0.0-rc",
+    "gulp-natural-sort": "^0.1.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-protractor": "^4.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-replace": "^0.4.3",
+    "gulp-sass": "^3.1.0",
+    "gulp-shell": "^0.6.1",
+    "gulp-size": "^2.0.0",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-useref": "^3.0.4",
+    "jasmine-spec-reporter": "^3.2.0",
+    "karma": "^1.1.0",
+    "karma-angular-filesort": "^1.0.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-spec-reporter": "^0.0.31",
+    "lodash": "^4.3.0",
+    "main-bower-files": "^2.9.0",
+    "minimist": "^1.2.0",
+    "phantomjs-prebuilt": "^2.1.4",
+    "plist": "git://github.com/akofman/plist.js.git#3f256fd21ab3ad3ada0f491cfc905098a2631342",
+    "protractor": "^5.1.1",
+    "proxy-middleware": "^0.15.0",
+    "require-dir": "^0.3.0",
+    "vinyl-paths": "^2.0.0",
+    "wiredep": "^4.0.0",
+    "xml2js": "^0.4.9",
+    "yeoman-test": "^1.1.0"
+  },
+  "generator-m-ionic": {
+    "proxies": [
+      {
+        "proxyMapFrom": "/postman-proxy",
+        "proxyMapTo": "https://echo.getpostman.com"
+      },
+      {
+        "proxyMapFrom": "/another-proxy",
+        "proxyMapTo": "https://echo.getpostman.com"
+      }
+    ]
+  },
+  "dependencies": {
+    "cordova-android": "6.2.3",
+    "cordova-ios": "4.5.4",
+    "cordova-plugin-actionsheet": "^2.3.3",
+    "cordova-plugin-app-event": "^1.2.1",
+    "cordova-plugin-camera": "^2.3.1",
+    "cordova-plugin-compat": "^1.2.0",
+    "cordova-plugin-contacts": "^2.2.1",
+    "cordova-plugin-device": "~2.0.1",
+    "cordova-plugin-dialogs": "^2.0.1",
+    "cordova-plugin-email-composer": "^0.8.11",
+    "cordova-plugin-facebook4": "^1.7.4",
+    "cordova-plugin-google-analytics": "git+https://github.com/danwilson/google-analytics-plugin.git",
+    "cordova-plugin-inappbrowser": "^1.7.2",
+    "cordova-plugin-network-information": "^1.3.4",
+    "cordova-plugin-splashscreen": "^4.1.0",
+    "cordova-plugin-statusbar": "^2.3.0",
+    "cordova-plugin-whitelist": "1",
+    "cordova-plugin-x-socialsharing": "^5.2.1",
+    "cordova-plugin-x-toast": "^2.6.0",
+    "de.appplant.cordova.plugin.local-notification": "^0.8.5",
+    "es6-promise-plugin": "^4.1.0",
+    "ionic-plugin-keyboard": "^2.2.1",
+    "phonegap-plugin-barcodescanner": "^6.0.8",
+    "phonegap-plugin-push": "^1.10.6",
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "^4.1.2"
+  },
+  "cordova": {
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-network-information": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-statusbar": {},
+      "de.appplant.cordova.plugin.local-notification": {},
+      "phonegap-plugin-push": {
+        "SENDER_ID": "333553856105"
+      },
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-inappbrowser": {},
+      "ionic-plugin-keyboard": {},
+      "uk.co.workingedge.phonegap.plugin.launchnavigator": {
+        "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes"
+      },
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-email-composer": {},
+      "phonegap-plugin-barcodescanner": {
+        "CAMERA_USAGE_DESCRIPTION": "Tomate una foto para tu perfil"
+      },
+      "cordova-plugin-contacts": {
+        "CONTACTS_USAGE_DESCRIPTION": "Agrega nuevos contactos en la sección Networking"
+      },
+      "cordova-plugin-camera": {
+        "CAMERA_USAGE_DESCRIPTION": "Tomate una foto para tu perfil",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "Selecciona una foto para tu perfil"
+      },
+      "cordova-plugin-google-analytics": {},
+      "cordova-plugin-facebook4": {
+        "APP_ID": "1859295627616933",
+        "APP_NAME": "Move Concerts"
+      },
+      "cordova-plugin-x-toast": {}
+    }
+  }
+}

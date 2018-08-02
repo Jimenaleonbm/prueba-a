@@ -1,0 +1,30 @@
+<ion-view view-title="Artistas" class="speakers bg-royal">
+
+  <!-- do you want padding? -->
+  <ion-content>
+
+    <div style="text-align: center" ng-if="!config.loaded">
+      <ion-spinner icon="dots"></ion-spinner>
+    </div>
+
+    <ion-list class="cols two-cols">
+      <ion-item class="conference name-floating item item-{{$index}} item-text-wrap"
+                ng-repeat="speaker in ctrl.speakers | limitTo: ctrl.renderLimit"
+                ui-sref="main.speaker({idSpeaker: speaker.$key})">
+
+        <div class="speaker-cover">
+          <img ng-src="{{speaker.info.image.fullsize}}">
+          <img ng-if="!speaker.info.image.fullsize" ng-src="main/assets/images/new.png">
+        </div>
+
+        <h2 class="speaker-name uppercase text-center color-white fz-3 fw-900 ff-lato speaker-name-align">
+          <div class="d-block">{{speaker.info.name}}</div>
+          <div class="track d-block fw-500 fz-4" ng-show="ctrl.tracks[speaker.info.track]">{{ctrl.tracks[speaker.info.track].name}}</div>
+        </h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll immediate-check="false" on-infinite="ctrl.loadMore()" ng-if="((ctrl.isMoreData))"></ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

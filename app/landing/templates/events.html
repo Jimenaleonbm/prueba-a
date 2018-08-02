@@ -1,0 +1,46 @@
+<div class="proximos-eventos">
+
+    <div class="columns prox-item" ng-repeat="item in events.data | orderBy: 'order'">
+        <!--div-- class="grupo-left general-evento-landing" ng-click="link(item.$key)" ng-style="{'background-image': getEventImage(item.image.fullsize)}">
+            <div class="event-img"></div>
+        </div-->
+        <div class="grupo-left general-evento-landing" ng-click="link(item.$key)">
+            <img ng-if="item.image" ng-src="{{item.image.fullsize}}">
+            <img ng-if="!item.image" ng-src="home/assets/images/bg-item-home.png)';">
+        </div>
+        <div class=" grupo-right description fw-500 ff-lato fz-3" style="position: relative">
+            <div class="uppercase color-white fz-1 fw-900 ff-cocogoose titulo-evento" ng-click="link(item.$key)">
+                {{item.name | limitTo:35}}{{(item.name.length > 35) ? '...' : ''}}
+            </div>
+
+            <div class="details" ng-click="link(item.$key)">
+                <div ng-if="item.dateFrom">
+                    <span class="uppercase fz-4">{{::item.dateFrom}}</span>
+                </div>
+                <div ng-if="item.place">
+                    <span class="uppercase fz-4">{{::item.place}}</span>
+                </div>
+                <div ng-if="item.city">
+                    <span class="uppercase fz-4">{{::item.city}}</span>
+                </div>
+            </div>
+
+            <div class="tickets" ng-if="item.tickets">
+                <div class="button button-calm button-small uppercase" ng-click="link_externo(item.tickets)">Boletería</div>
+            </div>
+        </div>
+    </div>
+
+    <!--Redes de Moveconcerts-->
+    <h2 class="ff-lato fw-400 fz0 color-black no-mb">Visitanos en:</h2>
+    <section class="social-networks">
+        <a class="button button-icon ion-social-facebook"
+               href="https://www.facebook.com/moveconcerts"></a>
+        <a class="button button-icon ion-social-instagram"
+               href="https://www.instagram.com/moveconcertsco/?hl=es"></a>
+       <a class="button button-icon ion-social-twitter"
+               href="https://twitter.com/moveconcerts"></a>
+        <a class="button button-icon ion-social-youtube"
+               href="https://www.youtube.com/moveconcerts"></a>
+    </section>
+</div>

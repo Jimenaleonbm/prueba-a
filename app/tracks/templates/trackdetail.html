@@ -1,0 +1,55 @@
+<ion-view view-title="" class="speaker track bg-royal">
+
+  <ion-nav-title>{{ctrl.track.name}}</ion-nav-title>
+
+  <!-- do you want padding? -->
+  <ion-content scroll="true" overflow-scroll="true">
+
+    <header class="text-center">
+      <img ng-show="ctrl.track.image" ng-src="{{ctrl.track.image.fullsize}}">
+    </header>
+
+    <article class="padding color-white fz-1">
+      <section class="info">
+        <div class="speaker-name">
+          <h2 class="like-icon item-icon-right uppercase fz2 fw-900 ff-cocogoose color-white">
+            {{ctrl.track.name}}
+          </h2>
+        </div>
+      </section>
+
+      <section ng-if="ctrl.track.description" class="description fw-300 font-small mb">
+        <div>{{ctrl.track.description}}</div>
+      </section>
+
+      <a ui-sref="main.agenda" class="color-white ff-cocogoose fw-500 mb">Ver tracks de {{ctrl.track.name}}</a>
+      <br>
+    </article>
+
+    <section class="relacionados">
+      <h2 class="fw-700 fz-3 ff-lata color-white dot dot-calm">Conferencistas relacionados: </h2>
+
+      <ion-scroll direction="x" class="list-horizontal" overflow-scroll="true">
+
+        <div class="cols two-cols">
+          <div class="row">
+
+            <div class="item list-horizontal-item name-floating" ng-repeat="speaker in ctrl.speakers" ui-sref="main.speaker({idSpeaker: speaker.$key})">
+              <div class="speaker-cover">
+                <img ng-src="{{speaker.info.image.fullsize}}">
+              </div>
+
+              <h2 class="speaker-name uppercase text-center color-white fz-3 fw-500 ff-lato speaker-name-align">
+                {{speaker.info.name}}
+              </h2>
+            </div>
+
+          </div>
+        </div>
+
+      </ion-scroll>
+
+    </section>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+.m-horizontal05 {
+    margin: .5em 0;
+}
+.pl3r {
+    padding-left: 3rem;
+}
+.gravatar {
+  width: 35px;
+  position: absolute;
+}
+.bg-gray {
+  background: #f3f3f3;
+}
+
+.footer-wall {
+  position: relative;
+  left: -3.5rem;
+  width: calc(100% + 3rem);
+  display: block;
+  text-align: center;
+  .button {
+    display: inline-block;
+    padding: 0px 10px;
+    width: auto;
+  }
+}

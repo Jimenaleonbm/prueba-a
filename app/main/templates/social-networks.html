@@ -1,0 +1,7 @@
+<!-- Social Networks Directive -->
+<section class="social-networks">
+  <!--a-- class="button button-icon icon {{Networks[key].icon}}" ng-repeat="(key, item) in model"
+     href="#" onclick="cordova.InAppBrowser.open(' '+item, '_blank', 'location=no');"></a-->
+  <a class="button button-icon icon {{Networks[key].icon}}" ng-repeat="(key, item) in model"
+     href="#" ng-click="goNetwork(item)" ></a>
+</section>

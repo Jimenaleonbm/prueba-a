@@ -1,0 +1,18 @@
+<div class="list item-text-wrap">
+
+    <a class="item no-border item-avatar centerY"
+       ng-repeat="item in news.data"
+       ui-sref="global.news.detail({notice: item})"
+       style="margin: 10px 10px 0; border-radius: 2px;">
+        <img ng-if="item.image" ng-src="{{item.image.fullsize}}">
+        <img ng-if="!item.image" ng-src="main/assets/images/new.png">
+        <h2 class="ff-lato fw-700 fz-2 uppercase color-black">{{item.titulo}}</h2>
+        <div class="fz-3 fw-500 mb color-calm">{{item.fecha | date: 'dd MMM, yyyy'}}</div>
+        <div class="fz-3">{{item.resumen | limitTo:150}}{{(item.resumen.length > 150) ? '...' : ''}}</div>
+    </a>
+
+</div>
+
+<div class="actions-buttons text-center mb" ng-if="ctrl.news.length >= 5">
+    <a class="button button-calm button-small uppercase color-white" ui-sref="news.list">ver todas</a>
+</div>

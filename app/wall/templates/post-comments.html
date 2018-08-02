@@ -1,0 +1,25 @@
+<ion-view class="evento detalle-chat" title="COMENTARIOS" id="postMessagesView">
+  <ion-content class="has-footer bg-gray" delegate-handle="postMessageScroll">
+    <div class="padding mb1 bg-white" ng-repeat="comment in ctrl.comments">
+      <img class="gravatar" ng-src="{{ (comment.user.image) ? comment.user.image : 'main/assets/images/avatar.png';}}" />
+      <div class="cont pl3r">
+        <header class="space-between">
+          <h2 class="color-brand fz-3">{{comment.user.name}} </h2>
+          <span class="fz-3 color-gray">{{comment.date | date: 'medium'}}</span>
+        </header>
+        <p class="fz-3">{{comment.text}}</p>
+      </div>
+    </div>
+  </ion-content>
+  <form name="sendMessageForm" ng-submit="ctrl.post_comment(message.text)" novalidate>
+    <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+      <label class="item-input-wrapper">
+        <textarea id="write_comment" ng-model="message.text" placeholder="Escribe tu comentario" required minlength="1" maxlength="1500" msd-elastic></textarea>
+      </label>
+      <div class="footer-btn-wrap">
+        <button class="button button-icon icon ion-android-send footer-btn" type="submit" ng-disabled="!message.text || message.text === ''">
+        </button>
+      </div>
+    </ion-footer-bar>
+  </form>
+</ion-view>

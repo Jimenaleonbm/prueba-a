@@ -1,0 +1,55 @@
+//menu
+.menu .scroll-content {
+  background: $royal;
+  top: 0;
+  .item {
+    background: none;
+    white-space: initial;
+    padding-left: 78px;
+    border-color: $positive;
+    margin: 0;
+    border-width: 0 0 1px 0;
+    &:last-of-type {
+      border-width: 0;
+    }
+    &.activated{
+      color: $calm !important;
+    }
+    .icon {
+      left: 28px;
+    }
+  }
+  .item-avatar {
+    padding: 1.5rem 0 1.5rem 78px;
+    img {
+      max-width: 55px;
+      max-height: 55px;
+      top: 22px;
+      border : 1.5px black solid;
+    }
+  }
+  .item, .item-content {
+    background: none;
+  }
+  .item-content {
+    border-width: 1px 0;
+    .icon {
+      font-size: 25px;
+    }
+  }
+
+  //item-complex
+  .item-complex {
+    padding-left: 0;
+    > .item-content {
+      padding-left: 78px;
+
+      &.activated {
+        color: $calm;
+      }
+    }
+    .icon {
+      left: 28px;
+    }
+  }
+}

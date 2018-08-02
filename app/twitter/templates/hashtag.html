@@ -1,0 +1,47 @@
+<ion-view view-title="" class="detalle-chat">
+
+  <ion-nav-title>
+    {{ctrl.hashtag}}
+  </ion-nav-title>
+
+  <!-- do you want padding? -->
+  <ion-content class="padding">
+
+    <!-- content goes here -->
+    <ion-list >
+      <ion-item class="item twitt  item-avatar item-text-wrap" ng-repeat="tweet in ctrl.TwitterREST.tweets">
+        <img ng-src="{{ tweet.user.profile_image_url }}">
+        <h2>{{ tweet.user.name }}</h2>
+        <small>@{{ tweet.user.screen_name }}</small>
+        <small class="time"> {{ tweet.created_at | formatTwitterDate}}</small>
+        <!-- <p compile="tweet.text | formatTwitterText"></p> -->
+        <p>{{tweet.text}}</p>
+        
+        <div ng-repeat="medio in tweet.entities.media">
+           
+            <img ng-src="{{medio.media_url}}" /> 
+        </div>
+        
+      </ion-item>
+    </ion-list>
+    <p ng-if="!ctrl.TwitterREST.isMoreData">There are no more tweets</p>
+	<p ng-if="ctrl.TwitterREST.error">{{ctrl.TwitterREST.error}}</p>
+	<ion-infinite-scroll immediate-check="false" on-infinite="ctrl.loadMore()" ng-if="((ctrl.TwitterREST.isMoreData && !ctrl.TwitterREST.error))">
+	</ion-infinite-scroll>    
+  </ion-content>
+
+  <form name="sendMessageForm" ng-submit="ctrl.TwitterREST.sendTwitt(ctrl.formData.message)" novalidate>
+    <ion-footer-bar class="bar-stable item-input-inset message-footer" keyboard-attach>
+      <label class="item-input-wrapper">
+        <textarea ng-model="ctrl.formData.message" value=""
+                  placeholder="Tweet" required minlength="1" maxlength="255" msd-elastic></textarea>
+      </label>
+      <div class="footer-btn-wrap">
+        <button class="button button-icon icon ion-android-send footer-btn" type="submit"
+                ng-disabled="!ctrl.formData.message || ctrl.formData.message === ''">
+        </button>
+      </div>
+    </ion-footer-bar>
+  </form>
+</ion-view>
+

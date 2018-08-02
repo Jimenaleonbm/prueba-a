@@ -1,0 +1,13 @@
+<ion-view view-title="Secciones" class="tracks bg-calm">
+  <ion-content>
+
+    <!-- content goes here -->
+    <div class="list">
+      <a class="item item-avatar centerY item-text-wrap no-bg color-white border-color-alpha-25" ng-repeat="track in ctrl.tracks" ui-sref="main.track({trackid: track.$key, trackdata: track})">
+        <img ng-show="track.image" ng-src="{{track.image.fullsize}}">
+        <h2 class="color-white fz0 uppercase">{{track.name}}</h2>
+      </a>
+    </div>
+
+  </ion-content>
+</ion-view>

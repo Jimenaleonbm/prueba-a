@@ -1,0 +1,20 @@
+/**
+* QR
+*/
+/*img {
+    display: block;
+    max-width: 100%;
+    height: auto !important;
+}*/
+
+.the-qr {
+    width: 250px;
+    margin: 0 auto;
+    background-color: rgba(255,255,255,.45);
+    padding: 15px;
+
+    .cont {
+        background-color: white;
+        padding: 6px;
+    }
+}

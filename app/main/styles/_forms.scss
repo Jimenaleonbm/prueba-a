@@ -1,0 +1,86 @@
+label {
+  &.item {
+    border: 0;
+    ::-webkit-input-placeholder {
+      color: $black;
+    }
+    ::-moz-placeholder {
+      color: $black;
+    }
+    :-ms-input-placeholder {
+      color: $black;
+    }
+    :-moz-placeholder {
+      color: $black;
+    }
+    ::placeholder {
+      color: $black;
+    }
+  }
+  //checkbox
+  &.item-checkbox {
+    input[type="checkbox"] {
+      &:checked {
+        + i.checkbox-icon {
+          &:before {
+            background: $royal;
+            border-color: $royal;
+          }
+          &:after {
+            border-color: $calm;
+          }
+        }
+      }
+    }
+  }
+  //inputs
+  &.item-input {
+    margin: 0;
+    border: 0;
+    padding: 6px 0;
+    > input {
+      position: relative;
+      z-index: 2;
+      border-bottom: 1px solid;
+      padding: 1px 8px 2px !important;
+      height: 25px;
+    }
+  }
+}
+
+//placeholders para fondo blanco
+ion-view.bg-white {
+  label.item {
+    ::-webkit-input-placeholder {
+      color: $gray;
+    }
+    ::-moz-placeholder {
+      color: $gray;
+    }
+    :-ms-input-placeholder {
+      color: $gray;
+    }
+    :-moz-placeholder {
+      color: $gray;
+    }
+  }
+}
+//placeholder se desplace hacia arriba del input
+.item-floating-label {
+  .input-label {
+    opacity: 1;
+    padding: 0;
+    z-index: 1;
+    top: 0;
+    border-radius: 0;
+    left: 5px;
+    transition: all linear 250ms;
+    transform: translateY(10px);
+    opacity: 0;
+    &.has-input {
+      transition: all linear 220ms 100ms;
+      transform: translateY(2px);
+      opacity: 1;
+    }
+  }
+}
